@@ -12,6 +12,8 @@ const NAV_ITEMS = [
   { label: "Contact", href: "/contact" },
 ];
 
+import logoImage from '@assets/generated_images/elegant_es_monogram_logo_with_wrapped_letters.png';
+
 export function Layout({ children }: { children: ReactNode }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -42,8 +44,8 @@ export function Layout({ children }: { children: ReactNode }) {
           {/* Logo */}
           <Link href="/">
             <a className="group flex items-center gap-3 no-underline cursor-pointer">
-              <div className="relative flex items-center justify-center w-10 h-10 border border-foreground/80 rounded-sm">
-                <span className="font-serif text-xl font-bold italic">ES</span>
+              <div className="relative flex items-center justify-center w-12 h-12">
+                <img src={logoImage} alt="Elevation Systems Logo" className="w-full h-full object-contain" />
               </div>
               <span className="hidden sm:block text-xs font-semibold tracking-[0.2em] uppercase opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
                 Elevation Systems
@@ -111,8 +113,8 @@ export function Layout({ children }: { children: ReactNode }) {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
             <div className="md:col-span-2">
               <div className="flex items-center gap-3 mb-6">
-                <div className="flex items-center justify-center w-8 h-8 border border-background/80 rounded-sm">
-                  <span className="font-serif text-lg font-bold italic text-background">ES</span>
+                <div className="flex items-center justify-center w-10 h-10">
+                  <img src={logoImage} alt="Elevation Systems Logo" className="w-full h-full object-contain opacity-90 invert" />
                 </div>
                 <span className="text-xs font-semibold tracking-[0.2em] uppercase text-background/80">
                   Elevation Systems
