@@ -2,7 +2,7 @@ import { Section } from "@/components/ui/section";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link } from "wouter";
-import { ArrowRight, Check, LayoutGrid, Layers, Settings2 } from "lucide-react";
+import { ArrowRight, Check, LayoutGrid, Layers, Settings2, Brain, Zap, MessageSquare } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export default function Home() {
@@ -13,14 +13,14 @@ export default function Home() {
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-secondary/40 via-background to-background"></div>
         <div className="container px-4 md:px-6 text-center max-w-4xl animate-in slide-in-from-bottom-8 duration-700 fade-in">
           <div className="inline-block mb-6 px-3 py-1 border border-foreground/10 text-xs font-medium tracking-widest uppercase rounded-full">
-            Intelligent Business Design
+            Systems that work with your nervous system
           </div>
           <h1 className="text-5xl md:text-7xl lg:text-8xl leading-tight md:leading-tight mb-8 font-serif">
             From chaos to clarity <br/>
-            <span className="italic font-light text-foreground/80">built systems that scale.</span>
+            <span className="italic font-light text-foreground/80">through intelligent design.</span>
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
-            I help founders move from overwhelm to calm authority by implementing the structures, systems, and intelligent design your business needs to grow.
+            I help service business owners move from overwhelm to calm execution using modern AI, automation, and structure. Not theory. Not hype. Just systems that work.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="/contact">
@@ -28,9 +28,9 @@ export default function Home() {
                 Book a Call
               </Button>
             </Link>
-            <Link href="/services">
+            <Link href="/about">
               <Button variant="outline" size="lg" className="rounded-none px-8 py-6 text-base w-full sm:w-auto bg-transparent border-foreground/20 hover:bg-foreground/5">
-                View Services
+                Meet Brittany
               </Button>
             </Link>
           </div>
@@ -44,65 +44,87 @@ export default function Home() {
             <div className="mx-auto w-12 h-12 flex items-center justify-center rounded-full bg-background border border-border">
               <Layers className="w-5 h-5" />
             </div>
+            <h3 className="text-2xl font-serif">Structure</h3>
+            <p className="text-muted-foreground leading-relaxed">
+              Remove friction instead of adding complexity. Build a business that doesn't depend on your constant attention.
+            </p>
+          </div>
+          <div className="space-y-4 p-6 border-t md:border-t-0 md:border-l border-border/10">
+            <div className="mx-auto w-12 h-12 flex items-center justify-center rounded-full bg-background border border-border">
+              <Zap className="w-5 h-5" />
+            </div>
+            <h3 className="text-2xl font-serif">Automation</h3>
+            <p className="text-muted-foreground leading-relaxed">
+              Capture leads, follow up automatically, and simplify workflows so you stop repeating yourself.
+            </p>
+          </div>
+          <div className="space-y-4 p-6 border-t md:border-t-0 md:border-l border-border/10">
+            <div className="mx-auto w-12 h-12 flex items-center justify-center rounded-full bg-background border border-border">
+              <Brain className="w-5 h-5" />
+            </div>
             <h3 className="text-2xl font-serif">Clarity</h3>
             <p className="text-muted-foreground leading-relaxed">
-              Eliminate decision fatigue. Know exactly what needs to happen, when, and by whom.
-            </p>
-          </div>
-          <div className="space-y-4 p-6 border-t md:border-t-0 md:border-l border-border/10">
-            <div className="mx-auto w-12 h-12 flex items-center justify-center rounded-full bg-background border border-border">
-              <Settings2 className="w-5 h-5" />
-            </div>
-            <h3 className="text-2xl font-serif">Consistency</h3>
-            <p className="text-muted-foreground leading-relaxed">
-              Deliver excellence every single time. Turn "random acts of marketing" into reliable revenue engines.
-            </p>
-          </div>
-          <div className="space-y-4 p-6 border-t md:border-t-0 md:border-l border-border/10">
-            <div className="mx-auto w-12 h-12 flex items-center justify-center rounded-full bg-background border border-border">
-              <LayoutGrid className="w-5 h-5" />
-            </div>
-            <h3 className="text-2xl font-serif">Capacity</h3>
-            <p className="text-muted-foreground leading-relaxed">
-              Create space for deep work and strategic thinking. Stop working <i>in</i> the business so you can work <i>on</i> it.
+              Reduce mental load and decision fatigue. Know exactly what needs to happen, when, and by whom.
             </p>
           </div>
         </div>
       </Section>
 
-      {/* How It Works */}
+      {/* Who This Is For */}
       <Section>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
-            <h2 className="text-4xl md:text-5xl font-serif mb-6">Designed for depth, <br/>not just speed.</h2>
+            <h2 className="text-4xl md:text-5xl font-serif mb-6">Who this is for</h2>
             <p className="text-lg text-muted-foreground mb-8">
-              We don't apply band-aids. We rebuild the foundation. My process is a meticulous four-stage evolution that transforms how your business operates.
+              Elevation Systems is designed for business owners who sell services or expertise and are tired of manual follow-up. You want fewer tools, not more.
             </p>
-            <ul className="space-y-6">
+            <ul className="space-y-4">
               {[
-                { step: "01", title: "Diagnose", desc: "We map your current chaos and identify the bottlenecks." },
-                { step: "02", title: "Design", desc: "We architect the custom systems your specific model needs." },
-                { step: "03", title: "Implement", desc: "I build the tools, templates, and tech stack for you." },
-                { step: "04", title: "Optimize", desc: "We refine based on real-world feedback and performance." },
-              ].map((item) => (
-                <li key={item.step} className="flex gap-6 group">
-                  <span className="font-serif text-3xl text-border/20 group-hover:text-accent transition-colors">{item.step}</span>
+                { label: "Local Service Businesses", desc: "Plumbers, landscapers, boutique agencies." },
+                { label: "Consultants & Operators", desc: "Experts selling knowledge, not hours." },
+                { label: "Small Teams", desc: "Ready to systemize and escape the chaos." },
+              ].map((item, i) => (
+                <li key={i} className="flex gap-4 items-start">
+                  <Check className="text-accent mt-1 flex-shrink-0" size={20} />
                   <div>
-                    <h4 className="text-lg font-medium mb-1">{item.title}</h4>
+                    <h4 className="text-lg font-medium">{item.label}</h4>
                     <p className="text-sm text-muted-foreground">{item.desc}</p>
                   </div>
                 </li>
               ))}
             </ul>
           </div>
-          <div className="relative aspect-[4/5] bg-secondary/30 hidden lg:block overflow-hidden">
-             {/* Abstract visual representation of structure */}
-             <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-2/3 h-2/3 border border-foreground/10 relative">
-                  <div className="absolute top-4 left-4 w-full h-full border border-foreground/10"></div>
-                  <div className="absolute -top-4 -left-4 w-full h-full border border-foreground/10"></div>
-                </div>
-             </div>
+          <div className="relative p-8 bg-secondary/10 border border-border/10">
+            <h3 className="text-2xl font-serif mb-6">What I build</h3>
+            <div className="space-y-6">
+              <div className="flex gap-4">
+                 <div className="w-10 h-10 flex items-center justify-center bg-background border border-border/20">
+                   <LayoutGrid size={20} />
+                 </div>
+                 <div>
+                   <h4 className="font-medium">High-Converting Websites</h4>
+                   <p className="text-sm text-muted-foreground">Simple, elegant, and built to sell.</p>
+                 </div>
+              </div>
+              <div className="flex gap-4">
+                 <div className="w-10 h-10 flex items-center justify-center bg-background border border-border/20">
+                   <MessageSquare size={20} />
+                 </div>
+                 <div>
+                   <h4 className="font-medium">AI Chat & Voice Systems</h4>
+                   <p className="text-sm text-muted-foreground">Never miss a call or lead again.</p>
+                 </div>
+              </div>
+              <div className="flex gap-4">
+                 <div className="w-10 h-10 flex items-center justify-center bg-background border border-border/20">
+                   <Settings2 size={20} />
+                 </div>
+                 <div>
+                   <h4 className="font-medium">Automated Workflows</h4>
+                   <p className="text-sm text-muted-foreground">Connect your tools to stop manual data entry.</p>
+                 </div>
+              </div>
+            </div>
           </div>
         </div>
       </Section>
@@ -111,7 +133,7 @@ export default function Home() {
       <Section className="bg-foreground text-background">
         <div className="text-center mb-16 max-w-2xl mx-auto">
           <h2 className="text-4xl font-serif mb-4 text-background">Signature Services</h2>
-          <p className="text-background/60">Choose the level of support that fits your current stage of growth.</p>
+          <p className="text-background/60">Hands-on builds. No outsourcing. No overcomplication.</p>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -119,21 +141,21 @@ export default function Home() {
             {
               title: "Systems Audit",
               price: "2 Weeks",
-              desc: "A deep-dive analysis of your current operations to find the hidden leaks.",
-              features: ["Workflow Mapping", "Tech Stack Review", "Action Plan"]
+              desc: "A deep-dive analysis to find where you're leaking time and money.",
+              features: ["Workflow Mapping", "Tech Stack Review", "Bottleneck Report"]
             },
             {
-              title: "Systems Build",
+              title: "The Build",
               price: "4-8 Weeks",
-              desc: "Complete operational overhaul. We build the machine while you drive.",
-              features: ["Custom Notion/ClickUp", "SOP Creation", "Team Training"],
+              desc: "Complete operational overhaul. I build the machine while you drive.",
+              features: ["Custom Web Apps", "AI Integration", "Team Training"],
               highlight: true
             },
             {
               title: "Operations Retainer",
               price: "Monthly",
-              desc: "Your fractional COO. Ongoing management and optimization.",
-              features: ["Weekly Strategy", "Project Management", "Hiring Support"]
+              desc: "Your fractional COO and technical partner.",
+              features: ["Weekly Strategy", "System Optimization", "Tech Support"]
             }
           ].map((offer, i) => (
             <div 
@@ -171,17 +193,15 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* Founder / Values */}
+      {/* Founder Quote */}
       <Section>
         <div className="max-w-3xl mx-auto text-center">
-          <span className="block font-serif italic text-2xl text-accent mb-6">"Structure is not the enemy of creativity. It is the vessel."</span>
+          <span className="block font-serif italic text-2xl text-accent mb-6">"Structure is freedom. Without boundaries, creativity dissipates."</span>
           <p className="text-lg md:text-xl leading-relaxed text-muted-foreground mb-10">
-            I believe that true freedom in business comes from discipline. My approach is grounded in pattern recognition and a builder's mindset. I don't just organize files; I design the architecture that allows your best work to surface.
+            I don't just organize files; I design the architecture that allows your best work to surface. My goal is to build a business that works with your nervous system, not against it.
           </p>
           <div className="flex justify-center gap-8 text-sm uppercase tracking-widest font-medium">
             <span>Sustainable Growth</span>
-            <span className="text-border/20">•</span>
-            <span>Depth Over Hype</span>
             <span className="text-border/20">•</span>
             <span>Intelligent Design</span>
           </div>
