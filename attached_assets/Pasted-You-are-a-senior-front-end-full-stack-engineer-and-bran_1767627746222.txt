@@ -1,0 +1,62 @@
+You are a senior front-end + full-stack engineer and brand-sensitive designer.
+
+Build a modern, minimalist marketing website for my consulting brand: “Elevation Systems”.
+Brand promise: I help people and businesses move from chaos → clarity through systems, structure, and intelligent design.
+Vibe: calm authority, grounded, strategic, quietly powerful. Feminine edge (sleek + editorial), NOT cute, NOT flowery, NOT bubbly.
+Design: luxury editorial feel, lots of whitespace, strong typography, crisp layout.
+Color palette: black + warm off-white background (#F6F2EA or similar). Optional accent: deep plum or charcoal (very subtle). No gradients, no textures.
+Typography: elegant serif for headings + clean sans for body (use Google Fonts like “Playfair Display” + “Inter” or “Libre Baskerville” + “Inter”).
+Animations: minimal and subtle (fade/slide), respect prefers-reduced-motion.
+
+TECH REQUIREMENTS
+- Use Next.js (App Router) + TypeScript + Tailwind CSS.
+- Responsive, accessible, fast.
+- Create reusable components and good folder structure.
+- Add SEO basics: metadata, Open Graph, sitemap, robots.txt.
+- Add a contact form with validation. Use a simple API route that logs submissions for now (no external services required yet).
+- Add a sticky top nav, mobile menu, footer.
+- Add a “Book a Call” button that links to a placeholder (/contact) for now.
+
+PAGES + CONTENT
+1) Home (/)
+- Hero: “From chaos to clarity — built systems that scale.” (refine if needed)
+- Subhead: A short punchy line about turning overwhelm into structure.
+- Primary CTA: “Book a Call”
+- Secondary CTA: “See Services”
+- Section: 3 outcomes (Clarity, Consistency, Capacity)
+- Section: “How it works” (Diagnose → Design → Implement → Optimize)
+- Section: Featured offers (3 cards)
+- Section: Short founder-style blurb (no personal name needed yet) + values
+- Testimonials section with 3 placeholders
+- Final CTA block
+
+2) Services (/services)
+Create 3 service blocks with details, who it’s for, deliverables, timeline:
+- Systems Audit (2 weeks)
+- Systems Build (4–8 weeks)
+- Operations Retainer (monthly)
+
+3) About (/about)
+- Brand story: pattern recognition, builder mindset, calm authority.
+- Values: sustainable growth, depth over hype, intelligent design.
+- “What I believe” section (5 bullets).
+- CTA.
+
+4) Contact (/contact)
+- Contact form: name, email, business name, message.
+- Confirm success state UI and error state.
+- Alternative contact method placeholder (email).
+
+5) Optional: Resources (/resources)
+- A simple list layout for future PDFs / guides with placeholders.
+
+DESIGN SYSTEM
+- Create a simple design system:
+  - Container widths, spacing scale, button styles, card styles, headings.
+  - Add a small “editorial” detail: thin rules, subtle dividers, oversized serif headings.
+- Add a monogram-style text logo: “ES” in a refined serif. Don’t use an image. Put “ELEVATION SYSTEMS” in spaced small caps beside or beneath it.
+
+DELIVERABLE
+- Output the complete project structure and all code files needed to run.
+- Include clear run instructions.
+- After building, provide a short checklist of what I should edit first (copy, services, booking link, testimonials).
