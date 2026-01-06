@@ -2,6 +2,7 @@ import { Section } from "@/components/ui/section";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Check, X } from "lucide-react";
+import brittanyImage from "@assets/377CCC78-5D99-415B-B193-700674A15CF4_1767738108450.PNG";
 
 export default function About() {
   return (
@@ -25,8 +26,12 @@ export default function About() {
 
       <div className="w-full h-[60vh] bg-secondary/30 relative overflow-hidden">
         {/* Abstract Placeholder for Portrait/Lifestyle Image */}
-        <div className="absolute inset-0 flex items-center justify-center text-foreground/10 font-serif text-9xl italic select-none">
-          Brittany
+        <div className="absolute inset-0 flex items-center justify-center bg-background">
+          <img 
+            src={brittanyImage} 
+            alt="Brittany - Founder of Elevation Systems" 
+            className="w-full h-full object-cover opacity-90"
+          />
         </div>
       </div>
 
