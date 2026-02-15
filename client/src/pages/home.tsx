@@ -15,21 +15,22 @@ export default function Home() {
             Growth systems for local businesses
           </div>
           <h1 className="text-5xl md:text-7xl lg:text-8xl leading-tight md:leading-tight mb-8 font-serif" data-testid="text-hero-heading">
-            Stop the leaks. <br/>
-            <span className="italic font-light text-foreground/80">Start the growth.</span>
+            Is your website an asset <br/>
+            <span className="italic font-light text-foreground/80">— or a liability?</span>
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed" data-testid="text-hero-sub">
-            I help service business owners move from overwhelm to calm execution using modern technology, and structure. Not theory. Not hype. Just systems that work.
+            Most service businesses are spending real money on marketing — but their website is quietly losing leads. Find out where the leaks are in under 30 seconds.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href="/contact">
+            <Link href="/audit">
               <Button size="lg" className="rounded-none px-8 py-6 text-base w-full sm:w-auto" data-testid="button-hero-cta">
-                Book a Call
+                Find Out in 30 Seconds
+                <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
-            <Link href="/services">
+            <Link href="/contact">
               <Button variant="outline" size="lg" className="rounded-none px-8 py-6 text-base w-full sm:w-auto bg-transparent border-foreground/20 hover:bg-foreground/5" data-testid="button-hero-services">
-                See How It Works
+                Book a Call
               </Button>
             </Link>
           </div>
