@@ -12,7 +12,7 @@ const NAV_ITEMS = [
   { label: "Contact", href: "/contact" },
 ];
 
-import logoImage from '@assets/generated_images/elevation_axis_logo.png';
+import logoImage from '@assets/IMG_5053_1771177208965.jpg';
 
 export function Layout({ children }: { children: ReactNode }) {
   const [isScrolled, setIsScrolled] = useState(false);
