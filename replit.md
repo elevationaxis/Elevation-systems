@@ -2,9 +2,9 @@
 
 ## Overview
 
-Elevation Axis is a marketing website for a consulting brand that helps business owners move from operational chaos to clarity through systems, structure, and intelligent design. The site is a multi-page, minimalist editorial-style marketing website featuring a home page, services page, about page, contact form, and resources page. The brand targets service business owners and offers systems audits, systems builds, and operations retainers.
+Elevation Axis is a marketing website for a growth systems consultancy that helps local service businesses stop leaking leads and turn marketing spend into booked jobs. The site is a multi-page, minimalist editorial-style marketing website featuring a home page, services page, about page, contact form, and resources page. The brand targets local service businesses (HVAC, plumbers, contractors, dentists, consultants, etc.) and offers a four-phase engagement model: Prepare (diagnostic), Rescue (site rebuild), Guard (system integration), and Protect (ongoing maintenance).
 
-The founder is Brittany, and the brand name is "Elevation Axis" (evolved from an earlier "Elevation Systems" concept). The design aesthetic is luxury editorial — black text on warm off-white (#F6F2EA), serif headings (Playfair Display), clean sans-serif body text (Inter), lots of whitespace, and minimal animations. The vibe is calm authority, grounded, strategic, and feminine but not cute.
+The founder is Brittany, and the brand name is "Elevation Axis" (evolved from an earlier "Elevation Systems" concept). The core messaging is "fix the bucket first" — seal the leaks before spending more on marketing. The design aesthetic is luxury editorial — black text on warm off-white (#F6F2EA), serif headings (Playfair Display), clean sans-serif body text (Inter), lots of whitespace, and minimal animations. The vibe is calm authority, grounded, strategic, and feminine but not cute. Important: avoid AI-heavy language — focus on modern technology, structure, and infrastructure instead.
 
 ## User Preferences
 
