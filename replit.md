@@ -38,6 +38,7 @@ Preferred communication style: Simple, everyday language.
 - **Tables**:
   - `users` — id (UUID, auto-generated), username (unique), password
   - `contact_submissions` — id (serial), name, email, business_name, message, created_at (auto timestamp)
+  - `audit_submissions` — id (serial), business_name, email, website_url, status, overall_score, site_speed_score/data, lead_plumbing_score/data, local_visibility_score/data, competitor_score/data, recommendations (jsonb), created_at
 - **Migrations**: Drizzle Kit with `drizzle-kit push` command (`npm run db:push`)
 - **Connection**: `pg.Pool` via `node-postgres`, configured in `server/db.ts`
 - **Session Store**: `connect-pg-simple` is listed as a dependency (PostgreSQL-backed sessions), though session middleware isn't fully wired in current routes

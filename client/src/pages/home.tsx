@@ -182,13 +182,20 @@ export default function Home() {
         <div className="flex flex-col items-center justify-center text-center">
           <h2 className="text-5xl md:text-7xl font-serif mb-8" data-testid="text-cta-heading">Ready to fix the bucket?</h2>
           <p className="max-w-xl text-muted-foreground mb-10 text-lg">
-            Start with a diagnostic. See exactly where leads are leaking — and what it'll take to seal them.
+            Start with a free website audit. See exactly where leads are leaking — and what it'll take to seal them.
           </p>
-          <Link href="/contact">
-            <Button size="lg" className="rounded-none px-12 py-8 text-lg" data-testid="button-cta-book">
-              Book a Call
-            </Button>
-          </Link>
+          <div className="flex flex-col sm:flex-row items-center gap-4">
+            <Link href="/audit">
+              <Button size="lg" className="rounded-none px-12 py-8 text-lg" data-testid="button-cta-audit">
+                Run a Free Audit
+              </Button>
+            </Link>
+            <Link href="/contact">
+              <Button variant="outline" size="lg" className="rounded-none px-12 py-8 text-lg bg-transparent border-foreground/20 hover:bg-foreground/5" data-testid="button-cta-book">
+                Book a Call
+              </Button>
+            </Link>
+          </div>
         </div>
       </Section>
     </>

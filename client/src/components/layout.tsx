@@ -2,11 +2,11 @@ import { Link, useLocation } from "wouter";
 import { cn } from "@/lib/utils";
 import { useState, useEffect, ReactNode } from "react";
 import { Menu, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
 const NAV_ITEMS = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
+  { label: "Free Audit", href: "/audit" },
   { label: "About", href: "/about" },
   { label: "Resources", href: "/resources" },
   { label: "Contact", href: "/contact" },
@@ -33,7 +33,6 @@ export function Layout({ children }: { children: ReactNode }) {
 
   return (
     <div className="min-h-screen flex flex-col font-sans bg-background text-foreground selection:bg-accent selection:text-accent-foreground">
-      {/* Navigation */}
       <header
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out border-b border-transparent",
@@ -41,40 +40,36 @@ export function Layout({ children }: { children: ReactNode }) {
         )}
       >
         <div className="container mx-auto px-4 md:px-6 max-w-7xl flex items-center justify-between">
-          {/* Logo */}
-          <Link href="/">
-            <a className="group flex items-center gap-3 no-underline cursor-pointer">
-              <div className="relative flex items-center justify-center w-12 h-12">
-                <img src={logoImage} alt="Elevation Axis Logo" className="w-full h-full object-contain" />
-              </div>
-              <span className="hidden sm:block text-xs font-semibold tracking-[0.2em] uppercase opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
-                Elevation Axis
-              </span>
-            </a>
+          <Link href="/" className="group flex items-center gap-3 no-underline cursor-pointer">
+            <div className="relative flex items-center justify-center w-12 h-12">
+              <img src={logoImage} alt="Elevation Axis Logo" className="w-full h-full object-contain" />
+            </div>
+            <span className="hidden sm:block text-xs font-semibold tracking-[0.2em] uppercase opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
+              Elevation Axis
+            </span>
           </Link>
 
-          {/* Desktop Menu */}
           <nav className="hidden md:flex items-center gap-8">
             {NAV_ITEMS.map((item) => (
-              <Link key={item.href} href={item.href}>
-                <a
-                  className={cn(
-                    "text-sm font-medium tracking-wide uppercase transition-colors hover:text-accent",
-                    location === item.href ? "text-foreground border-b border-foreground" : "text-muted-foreground"
-                  )}
-                >
-                  {item.label}
-                </a>
+              <Link
+                key={item.href}
+                href={item.href}
+                className={cn(
+                  "text-sm font-medium tracking-wide uppercase transition-colors hover:text-accent",
+                  location === item.href ? "text-foreground border-b border-foreground" : "text-muted-foreground"
+                )}
+              >
+                {item.label}
               </Link>
             ))}
-            <Link href="/contact">
-              <Button variant="default" className="ml-4 rounded-none font-medium px-6">
-                Book a Call
-              </Button>
+            <Link
+              href="/contact"
+              className="ml-4 inline-flex items-center justify-center rounded-none font-medium px-6 h-10 bg-primary text-primary-foreground hover:bg-primary/90 text-sm transition-colors"
+            >
+              Book a Call
             </Link>
           </nav>
 
-          {/* Mobile Menu Toggle */}
           <button
             className="md:hidden p-2 text-foreground"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -84,30 +79,26 @@ export function Layout({ children }: { children: ReactNode }) {
         </div>
       </header>
 
-      {/* Mobile Menu Overlay */}
       {mobileMenuOpen && (
         <div className="fixed inset-0 z-40 bg-background flex flex-col items-center justify-center space-y-8 md:hidden animate-in fade-in duration-200">
           {NAV_ITEMS.map((item) => (
-            <Link key={item.href} href={item.href}>
-              <a className="text-2xl font-serif text-foreground hover:text-accent transition-colors">
-                {item.label}
-              </a>
+            <Link key={item.href} href={item.href} className="text-2xl font-serif text-foreground hover:text-accent transition-colors">
+              {item.label}
             </Link>
           ))}
-          <Link href="/contact">
-            <Button size="lg" className="mt-8 rounded-none w-full max-w-xs">
-              Book a Call
-            </Button>
+          <Link
+            href="/contact"
+            className="mt-8 inline-flex items-center justify-center rounded-none w-full max-w-xs h-12 bg-primary text-primary-foreground hover:bg-primary/90 text-base font-medium transition-colors"
+          >
+            Book a Call
           </Link>
         </div>
       )}
 
-      {/* Main Content */}
       <main className="flex-grow pt-20">
         {children}
       </main>
 
-      {/* Footer */}
       <footer className="bg-foreground text-background py-16">
         <div className="container mx-auto px-4 md:px-6 max-w-7xl">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
@@ -130,10 +121,8 @@ export function Layout({ children }: { children: ReactNode }) {
               <ul className="space-y-2">
                 {NAV_ITEMS.map((item) => (
                   <li key={item.href}>
-                    <Link href={item.href}>
-                      <a className="text-sm text-background/60 hover:text-background transition-colors">
-                        {item.label}
-                      </a>
+                    <Link href={item.href} className="text-sm text-background/60 hover:text-background transition-colors">
+                      {item.label}
                     </Link>
                   </li>
                 ))}

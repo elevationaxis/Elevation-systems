@@ -10,6 +10,7 @@ import Services from "@/pages/services";
 import About from "@/pages/about";
 import Contact from "@/pages/contact";
 import Resources from "@/pages/resources";
+import Audit from "@/pages/audit";
 import { useLocation } from "wouter";
 import { useEffect } from "react";
 
@@ -33,6 +34,7 @@ function Router() {
         <Route path="/about" component={About} />
         <Route path="/contact" component={Contact} />
         <Route path="/resources" component={Resources} />
+        <Route path="/audit" component={Audit} />
         <Route component={NotFound} />
       </Switch>
     </Layout>
