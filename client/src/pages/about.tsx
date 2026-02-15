@@ -18,7 +18,7 @@ export default function About() {
           </div>
           <div className="flex flex-col justify-end">
             <p className="text-xl text-muted-foreground leading-relaxed">
-              Most small business owners don't need more tools. They need clarity, structure, and systems that actually work. Elevation Systems exists to turn operational overwhelm into calm, repeatable execution.
+              Most small business owners don't need more tools. They need clarity, structure, and systems that actually work. Elevation Axis exists to turn operational overwhelm into calm, repeatable execution.
             </p>
           </div>
         </div>
@@ -26,10 +26,10 @@ export default function About() {
 
       <div className="w-full h-[60vh] bg-secondary/30 relative overflow-hidden">
         {/* Abstract Placeholder for Portrait/Lifestyle Image */}
-        <div className="absolute inset-0 flex items-center justify-center bg-background">
+            <div className="absolute inset-0 flex items-center justify-center bg-background">
           <img 
             src={brittanyImage} 
-            alt="Brittany - Founder of Elevation Systems" 
+            alt="Brittany - Founder of Elevation Axis" 
             className="w-full h-full object-cover opacity-90"
           />
         </div>
@@ -43,7 +43,7 @@ export default function About() {
               I build backend systems for business owners who are doing too much — and paying for it with their time, energy, and peace of mind.
             </p>
             <p>
-              Before Elevation Systems, I was what many owners are today:
+              Before Elevation Axis, I was what many owners are today:
             </p>
             <ul className="list-none space-y-2 pl-0 my-6">
               <li className="flex items-center gap-3">
@@ -99,7 +99,7 @@ export default function About() {
           <h2 className="text-3xl font-serif mb-8">How My Systems Are Built</h2>
           <div className="mb-16 text-muted-foreground leading-relaxed">
             <p className="mb-4">
-              Elevation Systems are built hands-on — not outsourced, not templated, and not overcomplicated. I use modern AI-assisted development to design and build custom websites, simple web apps, and automated workflows.
+              Elevation Axis are built hands-on — not outsourced, not templated, and not overcomplicated. I use modern AI-assisted development to design and build custom websites, simple web apps, and automated workflows.
             </p>
             <p>
               This approach allows me to move faster, customize deeply, and avoid bloated tools. You don’t need a developer on retainer. You need something that works — and keeps working.
@@ -111,7 +111,7 @@ export default function About() {
             <div className="flex flex-col md:flex-row gap-8 items-start">
                <div className="flex-1 text-muted-foreground leading-relaxed">
                  <p className="mb-4">
-                   Elevation Systems is the cash-flow and execution engine behind a larger mission: building businesses — and eventually physical spaces — that support regulation, creativity, and sustainable growth.
+                   Elevation Axis is the cash-flow and execution engine behind a larger mission: building businesses — and eventually physical spaces — that support regulation, creativity, and sustainable growth.
                  </p>
                  <p>
                    Every system I build today is designed to support that future — calmly, ethically, and intentionally.

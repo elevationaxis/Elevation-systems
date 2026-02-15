@@ -51,9 +51,9 @@ export default function Contact() {
             <div className="space-y-8">
               <div>
                 <h3 className="font-serif text-xl mb-2">Contact</h3>
-                <a href="mailto:hello@elevationsystems.com" className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors">
+                <a href="mailto:hello@elevationaxis.com" className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors">
                   <Mail size={18} />
-                  hello@elevationsystems.com
+                  hello@elevationaxis.com
                 </a>
               </div>
               

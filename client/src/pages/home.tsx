@@ -76,7 +76,7 @@ export default function Home() {
           <div>
             <h2 className="text-4xl md:text-5xl font-serif mb-6">Who this is for</h2>
             <p className="text-lg text-muted-foreground mb-8">
-              Elevation Systems is designed for business owners who sell services or expertise and are tired of manual follow-up. You want fewer tools, not more.
+              Elevation Axis is designed for business owners who sell services or expertise and are tired of manual follow-up. You want fewer tools, not more.
             </p>
             <ul className="space-y-4">
               {[
