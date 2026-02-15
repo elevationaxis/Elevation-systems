@@ -75,11 +75,11 @@ export default function About() {
             <div>
               <h3 className="text-xl font-serif mb-4">What I Actually Do</h3>
               <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
-                I design and implement AI-powered business systems that help owners capture leads, stop missing calls, simplify workflows, and reduce decision fatigue.
+                I design and implement business systems that help owners capture leads, simplify workflows, and reduce decision fatigue — using modern technology and structure.
               </p>
               <ul className="space-y-2 text-sm text-foreground/80">
                 <li className="flex items-center gap-2"><Check size={14} className="text-accent"/> High-converting websites</li>
-                <li className="flex items-center gap-2"><Check size={14} className="text-accent"/> AI chat and voice systems</li>
+                <li className="flex items-center gap-2"><Check size={14} className="text-accent"/> Client communication systems</li>
                 <li className="flex items-center gap-2"><Check size={14} className="text-accent"/> Automated workflows</li>
                 <li className="flex items-center gap-2"><Check size={14} className="text-accent"/> Lightweight custom tools</li>
               </ul>
@@ -90,7 +90,7 @@ export default function About() {
               <ul className="space-y-3 text-sm text-muted-foreground">
                 <li className="flex items-center gap-2"><X size={14} className="text-muted-foreground/60"/> Web design for its own sake</li>
                 <li className="flex items-center gap-2"><X size={14} className="text-muted-foreground/60"/> App development for vanity projects</li>
-                <li className="flex items-center gap-2"><X size={14} className="text-muted-foreground/60"/> "AI hacks" or passive income schemes</li>
+                <li className="flex items-center gap-2"><X size={14} className="text-muted-foreground/60"/> "Quick hacks" or passive income schemes</li>
                 <li className="flex items-center gap-2"><X size={14} className="text-muted-foreground/60"/> One-size-fits-all automation</li>
               </ul>
             </div>

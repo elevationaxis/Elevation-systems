@@ -20,7 +20,7 @@ export default function Home() {
             <span className="italic font-light text-foreground/80">through intelligent design.</span>
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
-            I help service business owners move from overwhelm to calm execution using modern AI, automation, and structure. Not theory. Not hype. Just systems that work.
+            I help service business owners move from overwhelm to calm execution using modern technology, and structure. Not theory. Not hype. Just systems that work.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="/contact">
@@ -111,7 +111,7 @@ export default function Home() {
                    <MessageSquare size={20} />
                  </div>
                  <div>
-                   <h4 className="font-medium">AI Chat & Voice Systems</h4>
+                   <h4 className="font-medium">Client Communication Systems</h4>
                    <p className="text-sm text-muted-foreground">Never miss a call or lead again.</p>
                  </div>
               </div>
@@ -148,7 +148,7 @@ export default function Home() {
               title: "The Build",
               price: "4-8 Weeks",
               desc: "Complete operational overhaul. I build the machine while you drive.",
-              features: ["Custom Web Apps", "AI Integration", "Team Training"],
+              features: ["Custom Web Apps", "Tech Integration", "Team Training"],
               highlight: true
             },
             {
