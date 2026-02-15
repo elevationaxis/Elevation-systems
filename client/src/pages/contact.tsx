@@ -7,7 +7,9 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
-import { Mail, MapPin } from "lucide-react";
+import { useMutation } from "@tanstack/react-query";
+import { Mail, MapPin, Loader2 } from "lucide-react";
+import { apiRequest } from "@/lib/queryClient";
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
@@ -29,13 +31,29 @@ export default function Contact() {
     },
   });
 
+  const submitMutation = useMutation({
+    mutationFn: async (values: z.infer<typeof formSchema>) => {
+      const res = await apiRequest("POST", "/api/contact", values);
+      return res.json();
+    },
+    onSuccess: (data) => {
+      toast({
+        title: "Request Received",
+        description: data.message || "Thank you for your inquiry. I will be in touch shortly.",
+      });
+      form.reset();
+    },
+    onError: () => {
+      toast({
+        title: "Something went wrong",
+        description: "Please try again or email hello@elevationaxis.com directly.",
+        variant: "destructive",
+      });
+    },
+  });
+
   function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log("Form Submitted:", values);
-    toast({
-      title: "Request Received",
-      description: "Thank you for your inquiry. I will be in touch shortly.",
-    });
-    form.reset();
+    submitMutation.mutate(values);
   }
 
   return (
@@ -136,8 +154,15 @@ export default function Contact() {
                   )}
                 />
 
-                <Button type="submit" size="lg" className="w-full rounded-none">
-                  Send Message
+                <Button type="submit" size="lg" className="w-full rounded-none" disabled={submitMutation.isPending}>
+                  {submitMutation.isPending ? (
+                    <>
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      Sending...
+                    </>
+                  ) : (
+                    "Send Message"
+                  )}
                 </Button>
               </form>
             </Form>
