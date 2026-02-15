@@ -10,64 +10,64 @@ export default function About() {
       <Section className="pt-32 pb-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           <div>
-            <span className="text-accent uppercase tracking-widest text-xs font-semibold mb-4 block">Built for Business Owners</span>
-             <h1 className="text-5xl md:text-7xl font-serif mb-8 leading-[0.9]">
-              Tired of <br />
-              <span className="text-muted-foreground italic text-4xl md:text-6xl">Chaos?</span>
+            <span className="text-accent uppercase tracking-widest text-xs font-semibold mb-4 block" data-testid="text-about-label">Built for Business Owners</span>
+             <h1 className="text-5xl md:text-7xl font-serif mb-8 leading-[0.9]" data-testid="text-about-heading">
+              Your marketing <br />
+              <span className="text-muted-foreground italic text-4xl md:text-6xl">has a leak.</span>
             </h1>
           </div>
           <div className="flex flex-col justify-end">
-            <p className="text-xl text-muted-foreground leading-relaxed">
-              Most small business owners don't need more tools. They need clarity, structure, and systems that actually work. Elevation Axis exists to turn operational overwhelm into calm, repeatable execution.
+            <p className="text-xl text-muted-foreground leading-relaxed" data-testid="text-about-intro">
+              Most service businesses are spending real money on ads, SEO, and websites — but the bucket they're pouring it into has holes. Money goes in. Calls don't come out. That's where we come in.
             </p>
           </div>
         </div>
       </Section>
 
       <div className="w-full h-[60vh] bg-secondary/30 relative overflow-hidden">
-        {/* Abstract Placeholder for Portrait/Lifestyle Image */}
-            <div className="absolute inset-0 flex items-center justify-center bg-background">
+        <div className="absolute inset-0 flex items-center justify-center bg-background">
           <img 
             src={brittanyImage} 
             alt="Brittany - Founder of Elevation Axis" 
             className="w-full h-full object-cover opacity-90"
+            data-testid="img-brittany"
           />
         </div>
       </div>
 
       <Section>
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl font-serif mb-8">Hi, I'm Brittany.</h2>
+          <h2 className="text-3xl font-serif mb-8" data-testid="text-brittany-heading">Hi, I'm Brittany.</h2>
           <div className="prose prose-lg prose-neutral mb-16 text-muted-foreground">
             <p>
-              I build backend systems for business owners who are doing too much — and paying for it with their time, energy, and peace of mind.
+              I build growth systems for service businesses — the infrastructure behind the scenes that turns marketing spend into booked jobs instead of wasted budget.
             </p>
             <p>
-              Before Elevation Axis, I was what many owners are today:
+              Before Elevation Axis, I watched too many good businesses pour money into marketing with nothing to show for it. Not because the ads were bad, but because the foundation underneath was broken:
             </p>
             <ul className="list-none space-y-2 pl-0 my-6">
               <li className="flex items-center gap-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-accent"></span>
-                Wearing every hat
+                Websites built once and never updated
               </li>
               <li className="flex items-center gap-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-accent"></span>
-                Constantly reacting
+                Forms that don't notify anyone
               </li>
               <li className="flex items-center gap-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-accent"></span>
-                Repeating myself
+                Google listings that are half-broken
               </li>
               <li className="flex items-center gap-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-accent"></span>
-                Holding everything in my head
+                No way to track where leads actually come from
               </li>
             </ul>
             <p>
-              What changed wasn’t motivation. It was <strong>structure</strong>.
+              The fix isn't more traffic. It's <strong>sealing the leaks</strong>.
             </p>
             <p>
-              I started designing systems that removed friction instead of adding complexity — systems that work with the human nervous system, not against it. That’s the foundation of everything I build.
+              That's what Elevation Axis does — quietly and systematically. We find where leads are falling through the cracks and build the infrastructure to catch them.
             </p>
           </div>
 
@@ -75,13 +75,13 @@ export default function About() {
             <div>
               <h3 className="text-xl font-serif mb-4">What I Actually Do</h3>
               <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
-                I design and implement business systems that help owners capture leads, simplify workflows, and reduce decision fatigue — using modern technology and structure.
+                I find where your leads are leaking and seal the foundation — so the money you're already spending on marketing turns into booked jobs.
               </p>
               <ul className="space-y-2 text-sm text-foreground/80">
-                <li className="flex items-center gap-2"><Check size={14} className="text-accent"/> High-converting websites</li>
-                <li className="flex items-center gap-2"><Check size={14} className="text-accent"/> Client communication systems</li>
-                <li className="flex items-center gap-2"><Check size={14} className="text-accent"/> Automated workflows</li>
-                <li className="flex items-center gap-2"><Check size={14} className="text-accent"/> Lightweight custom tools</li>
+                <li className="flex items-center gap-2"><Check size={14} className="text-accent"/> High-converting websites that load fast</li>
+                <li className="flex items-center gap-2"><Check size={14} className="text-accent"/> CRM and booking integrations</li>
+                <li className="flex items-center gap-2"><Check size={14} className="text-accent"/> Lead tracking and follow-up systems</li>
+                <li className="flex items-center gap-2"><Check size={14} className="text-accent"/> Google Business and local visibility</li>
               </ul>
             </div>
             
@@ -89,51 +89,41 @@ export default function About() {
               <h3 className="text-xl font-serif mb-4">What I Don't Do</h3>
               <ul className="space-y-3 text-sm text-muted-foreground">
                 <li className="flex items-center gap-2"><X size={14} className="text-muted-foreground/60"/> Web design for its own sake</li>
-                <li className="flex items-center gap-2"><X size={14} className="text-muted-foreground/60"/> App development for vanity projects</li>
-                <li className="flex items-center gap-2"><X size={14} className="text-muted-foreground/60"/> "Quick hacks" or passive income schemes</li>
-                <li className="flex items-center gap-2"><X size={14} className="text-muted-foreground/60"/> One-size-fits-all automation</li>
+                <li className="flex items-center gap-2"><X size={14} className="text-muted-foreground/60"/> One-size-fits-all templates</li>
+                <li className="flex items-center gap-2"><X size={14} className="text-muted-foreground/60"/> Quick fixes that break next month</li>
+                <li className="flex items-center gap-2"><X size={14} className="text-muted-foreground/60"/> Handing you something you can't manage</li>
               </ul>
             </div>
           </div>
 
-          <h2 className="text-3xl font-serif mb-8">How My Systems Are Built</h2>
+          <h2 className="text-3xl font-serif mb-8" data-testid="text-how-heading">How It Gets Built</h2>
           <div className="mb-16 text-muted-foreground leading-relaxed">
             <p className="mb-4">
-              Elevation Axis are built hands-on — not outsourced, not templated, and not overcomplicated. I use modern AI-assisted development to design and build custom websites, simple web apps, and automated workflows.
+              Everything at Elevation Axis is built hands-on — not outsourced, not templated, and not overcomplicated. I use modern tools and technology to design and build custom websites, simple web apps, and connected business systems.
             </p>
             <p>
-              This approach allows me to move faster, customize deeply, and avoid bloated tools. You don’t need a developer on retainer. You need something that works — and keeps working.
+              This approach lets me move faster, customize deeply, and avoid bloated platforms. You don't need a developer on retainer. You need something that works — and keeps working.
             </p>
           </div>
 
           <div className="border-t border-border/10 pt-16">
-            <h2 className="text-3xl font-serif mb-6">The Bigger Vision</h2>
-            <div className="flex flex-col md:flex-row gap-8 items-start">
-               <div className="flex-1 text-muted-foreground leading-relaxed">
-                 <p className="mb-4">
-                   Elevation Axis is the cash-flow and execution engine behind a larger mission: building businesses — and eventually physical spaces — that support regulation, creativity, and sustainable growth.
-                 </p>
-                 <p>
-                   Every system I build today is designed to support that future — calmly, ethically, and intentionally.
-                 </p>
-               </div>
-               <div className="md:w-1/3 p-6 bg-secondary/20">
-                 <h4 className="font-serif italic mb-4">Long-term Vision</h4>
-                 <ul className="space-y-2 text-sm">
-                   <li>• Digital education resources</li>
-                   <li>• Community-centered programs</li>
-                   <li>• A physical sanctuary for reset</li>
-                 </ul>
-               </div>
+            <h2 className="text-3xl font-serif mb-6" data-testid="text-standard-heading">The Elevation Axis Standard</h2>
+            <div className="text-muted-foreground leading-relaxed">
+              <p className="text-lg font-medium text-foreground mb-4">
+                We don't just build websites. We build growth systems for local businesses.
+              </p>
+              <p>
+                Every project follows the same disciplined process: diagnose before you build, build what actually matters, and protect it so it keeps performing. No shortcuts. No mystery vendors. Just infrastructure that holds.
+              </p>
             </div>
           </div>
 
           <div className="mt-20 p-8 text-center bg-foreground text-background">
-            <p className="text-lg md:text-xl font-serif italic mb-6">
-              "You don't need to work harder. You need a business that works with you."
+            <p className="text-lg md:text-xl font-serif italic mb-6" data-testid="text-about-cta-quote">
+              "You can keep spending money on marketing and hope it works. Or you can fix the bucket first."
             </p>
             <Link href="/contact">
-              <Button variant="secondary" className="rounded-none px-8">Start Building</Button>
+              <Button variant="secondary" className="rounded-none px-8" data-testid="button-about-cta">Book a Call</Button>
             </Link>
           </div>
         </div>

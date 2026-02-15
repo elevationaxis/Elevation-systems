@@ -121,7 +121,7 @@ export function Layout({ children }: { children: ReactNode }) {
                 </span>
               </div>
               <p className="text-background/60 max-w-xs font-light">
-                Helping clear thinkers build better businesses through systems, structure, and intelligent design.
+                We find where leads are leaking and seal the foundation. Growth systems for local businesses.
               </p>
             </div>
 

@@ -1,50 +1,83 @@
 import { Section } from "@/components/ui/section";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
-import { Check, Clock, Calendar } from "lucide-react";
+import { Check, Search, Wrench, Shield, Eye, ArrowRight } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 export default function Services() {
-  const services = [
+  const phases = [
     {
-      title: "Systems Audit",
-      timeline: "2 Weeks",
-      price: "Investment: Starting at $1,500",
-      description: "A comprehensive diagnostic of your business operations. We lift the hood to see what's working, what's broken, and where you're losing money and time.",
-      whoFor: "For founders who feel overwhelmed but don't know exactly why, or established businesses preparing for a growth sprint.",
+      number: "01",
+      label: "PREPARE",
+      title: "Find the Leaks",
+      timeline: "1–2 Weeks",
+      price: "Starting at $997",
+      priceSub: "Credited toward any build.",
+      description: "Before anything gets built or marketed, we look under the hood. We check where calls are going (or not going), whether forms actually notify anyone, if Google listings are working or half-broken, and how fast the site loads on phones.",
+      outcome: "After this phase, you'll know exactly what's broken, what's outdated, and what's quietly costing you leads.",
       deliverables: [
-        "Current State Operational Map",
-        "Tech Stack Efficiency Review",
-        "Bottleneck Identification Report",
-        "90-Day Prioritized Action Plan"
-      ]
+        "Where leads are going (or getting lost)",
+        "Whether forms and phones actually work",
+        "Google listing health check",
+        "Site speed and mobile performance review",
+        "A clear battle plan — no guesswork"
+      ],
+      icon: Search,
     },
     {
-      title: "Systems Build",
-      timeline: "4–8 Weeks",
-      price: "Investment: Starting at $5,000",
-      description: "We don't just plan it; we build it. This is a complete operational overhaul where I design and implement the custom infrastructure your business needs to scale.",
-      whoFor: "For businesses that have outgrown 'winging it' and need robust infrastructure to handle increased volume without breaking.",
+      number: "02",
+      label: "RESCUE",
+      title: "Fix the Foundation",
+      timeline: "2–4 Weeks",
+      price: "Starting at $3,500",
+      priceSub: "For outdated or underperforming sites.",
+      description: "This is where we replace fragile, outdated setups. We rebuild your site so it loads fast, works on mobile, is secure, and you actually control it. No bloated platforms. No mystery vendors.",
+      outcome: "A fast, reliable site that can handle real demand — and that you actually own.",
       deliverables: [
-        "Custom Project Management Hub (ClickUp/Notion)",
-        "Automated Client Onboarding Flows",
-        "SOP Library & Documentation",
-        "Team Training & Handover",
-        "30 Days of Support"
-      ]
+        "Fast, mobile-first website rebuild",
+        "Secure hosting you control",
+        "No bloated platforms or mystery code",
+        "Clean, professional design that converts",
+        "Full ownership and access"
+      ],
+      icon: Wrench,
+      highlight: true,
     },
     {
-      title: "Operations Retainer",
+      number: "03",
+      label: "GUARD",
+      title: "Turn the Site Into a System",
+      timeline: "2–4 Weeks",
+      price: "Starting at $6,500",
+      priceSub: "For businesses that want control and visibility.",
+      description: "Now the site actually connects to how you run the business. We wire it into your booking and CRM tools, set up call and lead tracking, and give you simple ways to update content without breaking things.",
+      outcome: "Your website stops being a brochure and starts supporting growth.",
+      deliverables: [
+        "CRM and booking integration",
+        "Call and lead tracking setup",
+        "Content management you can handle",
+        "Google Business Profile optimization",
+        "Connected marketing ecosystem"
+      ],
+      icon: Shield,
+    },
+    {
+      number: "04",
+      label: "PROTECT",
+      title: "Stay Ahead While Others Drift",
       timeline: "Monthly",
-      price: "Investment: Starting at $2,500/mo",
-      description: "Your fractional COO and integration partner. I step into your business to manage the day-to-day operations, lead the team, and ensure strategic execution.",
-      whoFor: "For visionaries who need a deeply integrated partner to handle the 'how' so they can focus on the 'what' and 'why'.",
+      price: "Starting at $499/mo",
+      priceSub: "Think of it like maintenance on a truck you rely on.",
+      description: "Most businesses fail here because they stop paying attention. We don't. We set up tracking that actually works, review systems that don't rely on reminders, and keep your visibility current as rules change.",
+      outcome: "A lead system that doesn't decay. So competitors don't quietly pass you.",
       deliverables: [
-        "Weekly Strategy & Sprint Planning",
-        "Team Management & accountability",
-        "Hiring & Onboarding Support",
-        "Metric Tracking & KPI Reporting",
-        "Ongoing Systems Optimization"
-      ]
+        "Monthly performance monitoring",
+        "Review management and responses",
+        "Seasonal content and offer updates",
+        "Technical health and security checks",
+        "Competitor visibility tracking"
+      ],
+      icon: Eye,
     }
   ];
 
@@ -52,53 +85,58 @@ export default function Services() {
     <>
       <Section className="bg-secondary/20 pt-32 pb-20">
         <div className="max-w-4xl">
-          <h1 className="text-5xl md:text-6xl font-serif mb-6">Services</h1>
-          <p className="text-xl text-muted-foreground max-w-2xl leading-relaxed">
-            Scalable infrastructure for clarity-seeking founders. I offer three distinct ways to engage, depending on the maturity of your business.
+          <span className="text-accent uppercase tracking-widest text-xs font-semibold mb-4 block" data-testid="text-services-label">How It Works</span>
+          <h1 className="text-5xl md:text-6xl font-serif mb-6" data-testid="text-services-heading">Fix the bucket first.</h1>
+          <p className="text-xl text-muted-foreground max-w-2xl leading-relaxed" data-testid="text-services-intro">
+            You're already spending money on marketing. We make sure it actually turns into booked jobs — by finding leaks, fixing the foundation, and protecting what we build.
           </p>
         </div>
       </Section>
 
       <Section>
         <div className="space-y-24">
-          {services.map((service, index) => (
-            <div key={index} className="grid grid-cols-1 lg:grid-cols-12 gap-12 border-b border-border/10 pb-24 last:border-0 last:pb-0">
+          {phases.map((phase, index) => (
+            <div key={index} className="grid grid-cols-1 lg:grid-cols-12 gap-12 border-b border-border/10 pb-24 last:border-0 last:pb-0" data-testid={`card-service-${index}`}>
               <div className="lg:col-span-4">
-                <h2 className="text-3xl font-serif mb-4">{service.title}</h2>
-                <div className="flex flex-col gap-2 text-sm font-medium uppercase tracking-wider text-muted-foreground mb-6">
-                  <div className="flex items-center gap-2">
-                    <Clock size={16} />
-                    {service.timeline}
+                <div className="flex items-center gap-3 mb-4">
+                  <div className={cn(
+                    "w-10 h-10 flex items-center justify-center border",
+                    phase.highlight ? "bg-foreground text-background border-foreground" : "bg-background border-border/20"
+                  )}>
+                    <phase.icon size={18} />
                   </div>
-                  <div className="flex items-center gap-2">
-                    <Calendar size={16} />
-                    {service.price}
-                  </div>
+                  <span className="text-xs font-semibold tracking-[0.2em] uppercase text-muted-foreground">{phase.label}</span>
                 </div>
+                <h2 className="text-3xl font-serif mb-2">{phase.title}</h2>
+                <p className="text-sm text-muted-foreground mb-4">{phase.timeline}</p>
+                <div className="mb-2">
+                  <span className="text-lg font-medium">{phase.price}</span>
+                </div>
+                <p className="text-xs text-muted-foreground mb-6">{phase.priceSub}</p>
                 <Link href="/contact">
-                  <Button variant="outline" className="rounded-none w-full md:w-auto">
-                    Inquire Now
+                  <Button variant={phase.highlight ? "default" : "outline"} className="rounded-none w-full md:w-auto" data-testid={`button-inquire-${index}`}>
+                    Get Started
+                    <ArrowRight size={16} className="ml-2" />
                   </Button>
                 </Link>
               </div>
               
               <div className="lg:col-span-8 space-y-8">
                 <div>
-                  <h3 className="text-lg font-medium mb-2">What it is</h3>
-                  <p className="text-muted-foreground leading-relaxed">{service.description}</p>
+                  <h3 className="text-lg font-medium mb-2">What happens</h3>
+                  <p className="text-muted-foreground leading-relaxed">{phase.description}</p>
                 </div>
                 
-                <div>
-                  <h3 className="text-lg font-medium mb-2">Who it's for</h3>
-                  <p className="text-muted-foreground leading-relaxed">{service.whoFor}</p>
+                <div className="p-4 bg-secondary/10 border border-border/5">
+                  <p className="text-sm font-medium">{phase.outcome}</p>
                 </div>
 
                 <div>
-                  <h3 className="text-lg font-medium mb-4">Deliverables</h3>
+                  <h3 className="text-lg font-medium mb-4">What you get</h3>
                   <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                    {service.deliverables.map((item, i) => (
+                    {phase.deliverables.map((item, i) => (
                       <li key={i} className="flex items-start gap-3 text-sm text-muted-foreground">
-                        <Check size={16} className="text-accent mt-0.5" />
+                        <Check size={16} className="text-accent mt-0.5 flex-shrink-0" />
                         {item}
                       </li>
                     ))}
@@ -112,12 +150,15 @@ export default function Services() {
 
       <Section className="bg-foreground text-background py-20">
         <div className="text-center max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-serif mb-6 text-background">Not sure what you need?</h2>
-          <p className="text-background/70 mb-8">
-            Let's have a conversation. I can help diagnose where you're stuck and recommend the right path forward.
+          <h2 className="text-3xl md:text-4xl font-serif mb-6 text-background" data-testid="text-cta-heading">Not sure where to start?</h2>
+          <p className="text-background/70 mb-4">
+            Most clients begin with the diagnostic. It's low-risk, and the investment is credited toward any build.
+          </p>
+          <p className="text-background/50 text-sm mb-8">
+            No pressure. No long contracts. Just a conversation about what's leaking and how to fix it.
           </p>
           <Link href="/contact">
-            <Button size="lg" variant="secondary" className="rounded-none px-8">
+            <Button size="lg" variant="secondary" className="rounded-none px-8" data-testid="button-book-call">
               Book a Discovery Call
             </Button>
           </Link>
