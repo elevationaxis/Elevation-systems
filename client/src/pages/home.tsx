@@ -57,7 +57,7 @@ export default function Home() {
       <Section>
         <div className="text-center mb-16">
           <span className="text-accent uppercase tracking-widest text-xs font-semibold mb-4 block">How It Works</span>
-          <h2 className="text-4xl md:text-5xl font-serif mb-4" data-testid="text-phases-heading">Fix the bucket first.</h2>
+          <h2 className="text-4xl md:text-5xl font-serif mb-4" data-testid="text-phases-heading">Fix the foundation first.</h2>
           <p className="text-muted-foreground max-w-xl mx-auto">So the money you're already spending turns into booked jobs.</p>
         </div>
         
@@ -164,7 +164,7 @@ export default function Home() {
       {/* Bottom Line */}
       <Section>
         <div className="max-w-3xl mx-auto text-center">
-          <span className="block font-serif italic text-2xl text-accent mb-6" data-testid="text-quote">"You can keep spending money on marketing and hope it works. Or you can fix the bucket first."</span>
+          <span className="block font-serif italic text-2xl text-accent mb-6" data-testid="text-quote">"You can keep spending money on marketing and hope it works. Or you can fix the foundation and know it does."</span>
           <p className="text-lg md:text-xl leading-relaxed text-muted-foreground mb-10">
             Elevation Axis is for owners who want fewer leaks, fewer guesses, and more calls from the same spend. No hype. No babysitting vendors. Just systems that hold.
           </p>
@@ -181,7 +181,7 @@ export default function Home() {
       {/* CTA */}
       <Section className="py-24 border-t border-border/10">
         <div className="flex flex-col items-center justify-center text-center">
-          <h2 className="text-5xl md:text-7xl font-serif mb-8" data-testid="text-cta-heading">Ready to fix the bucket?</h2>
+          <h2 className="text-5xl md:text-7xl font-serif mb-8" data-testid="text-cta-heading">Ready to fix the foundation?</h2>
           <p className="max-w-xl text-muted-foreground mb-10 text-lg">
             See how your website stacks up against the competition — and find out what it'll take to get ahead.
           </p>
