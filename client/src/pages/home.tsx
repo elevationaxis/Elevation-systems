@@ -68,7 +68,7 @@ export default function Home() {
               label: "PREPARE",
               title: "Find the Leaks",
               desc: "We look under the hood to find where calls are going, what's broken, and what's quietly costing you leads.",
-              price: "Starting at $997",
+              price: "Starting at $499",
               icon: Search,
             },
             {
@@ -76,7 +76,7 @@ export default function Home() {
               label: "RESCUE",
               title: "Fix the Foundation",
               desc: "We replace fragile, outdated setups with a fast, reliable site you actually control.",
-              price: "Starting at $3,500",
+              price: "Starting at $2,500",
               icon: Wrench,
               highlight: true,
             },
@@ -85,7 +85,7 @@ export default function Home() {
               label: "GUARD",
               title: "Build the System",
               desc: "We wire your site into booking, CRM, and lead tracking so it actually supports your business.",
-              price: "Starting at $6,500",
+              price: "Starting at $5,000",
               icon: Shield,
             },
             {
@@ -93,7 +93,7 @@ export default function Home() {
               label: "PROTECT",
               title: "Stay Ahead",
               desc: "Ongoing monitoring, updates, and optimization so competitors don't quietly pass you.",
-              price: "Starting at $499/mo",
+              price: "Starting at $199/mo",
               icon: Eye,
             }
           ].map((phase, i) => (
