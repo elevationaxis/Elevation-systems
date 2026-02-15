@@ -19,12 +19,12 @@ export default function Home() {
             <span className="italic font-light text-foreground/80">— or a liability?</span>
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed" data-testid="text-hero-sub">
-            Most service businesses are spending real money on marketing — but their website is quietly losing leads. Find out where the leaks are in under 30 seconds.
+            Most service businesses are spending real money on marketing — but their website is quietly losing leads to the competition. Find out where you stand in under 30 seconds.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="/audit">
               <Button size="lg" className="rounded-none px-8 py-6 text-base w-full sm:w-auto" data-testid="button-hero-cta">
-                Find Out in 30 Seconds
+                See How You Stack Up
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
@@ -183,12 +183,12 @@ export default function Home() {
         <div className="flex flex-col items-center justify-center text-center">
           <h2 className="text-5xl md:text-7xl font-serif mb-8" data-testid="text-cta-heading">Ready to fix the bucket?</h2>
           <p className="max-w-xl text-muted-foreground mb-10 text-lg">
-            Start with a free website audit. See exactly where leads are leaking — and what it'll take to seal them.
+            See how your website stacks up against the competition — and find out what it'll take to get ahead.
           </p>
           <div className="flex flex-col sm:flex-row items-center gap-4">
             <Link href="/audit">
               <Button size="lg" className="rounded-none px-12 py-8 text-lg" data-testid="button-cta-audit">
-                Run a Free Audit
+                See How You Compare
               </Button>
             </Link>
             <Link href="/contact">

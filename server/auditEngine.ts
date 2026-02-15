@@ -43,27 +43,34 @@ async function fetchPageSpeed(url: string): Promise<PageSpeedResult | null> {
   }
 }
 
+function getSpeedVerdict(score: number): string {
+  if (score >= 80) return "ahead of most competitors";
+  if (score >= 60) return "on par with the average competitor";
+  if (score >= 40) return "slower than most competitors";
+  return "significantly slower than competitors — customers are leaving before your page loads";
+}
+
 function generateLeadPlumbingScore(url: string): { score: number; findings: string[] } {
   const domain = url.toLowerCase();
   const findings: string[] = [];
   let score = 50;
 
   if (domain.includes("wix") || domain.includes("squarespace") || domain.includes("weebly")) {
-    findings.push("Built on a template platform — forms may not connect to a CRM");
+    findings.push("Your site runs on a template platform — competitors with custom builds likely have tighter CRM integrations");
     score -= 10;
   }
 
   if (!domain.startsWith("https")) {
-    findings.push("Site may not be using HTTPS — visitors see a 'Not Secure' warning");
+    findings.push("Your site may lack HTTPS — competitors with secure sites look more trustworthy to visitors");
     score -= 15;
   } else {
-    findings.push("Site uses HTTPS (secure connection detected)");
+    findings.push("You have HTTPS — you're on par with competitors on basic security");
     score += 10;
   }
 
-  findings.push("Check: Does your main contact form send you an email notification?");
-  findings.push("Check: Is your phone number clickable on mobile?");
-  findings.push("Check: Do you have a clear call-to-action above the fold?");
+  findings.push("Many competitors have contact forms that auto-notify and feed into a CRM — does yours?");
+  findings.push("Top-performing competitors have click-to-call buttons visible on every page");
+  findings.push("Competitors winning the most leads have a clear call-to-action above the fold on mobile");
 
   const variance = Math.floor(Math.random() * 20) - 10;
   score = Math.max(20, Math.min(85, score + variance));
@@ -75,10 +82,10 @@ function generateLocalVisibilityScore(businessName: string): { score: number; fi
   const findings: string[] = [];
   let score = 45;
 
-  findings.push("Check: Is your Google Business Profile claimed and verified?");
-  findings.push("Check: Are your hours, phone, and address up to date?");
-  findings.push("Check: Do you have recent photos (last 90 days)?");
-  findings.push("Check: Is your business listed on Apple Maps?");
+  findings.push("Competitors who rank higher typically have a fully completed Google Business Profile");
+  findings.push("Businesses that update their hours, photos, and posts monthly outperform those that don't");
+  findings.push("Competitors with 20+ recent reviews dominate the local map pack — how do your reviews compare?");
+  findings.push("Many competitors are listed on Apple Maps and Bing Places — missing listings mean missed customers");
 
   const variance = Math.floor(Math.random() * 25) - 5;
   score = Math.max(25, Math.min(75, score + variance));
@@ -90,10 +97,10 @@ function generateCompetitorScore(businessName: string): { score: number; finding
   const findings: string[] = [];
   let score = 50;
 
-  findings.push("Competitors in your area likely have newer, faster websites");
-  findings.push("Check: Are competitors running Google Ads for your main keywords?");
-  findings.push("Check: Do competitors have more recent Google reviews?");
-  findings.push("Check: Are competitors showing up in local map pack results?");
+  findings.push("Competitors in your space are investing in faster, mobile-first websites");
+  findings.push("Top competitors are likely running targeted Google Ads for your highest-value keywords");
+  findings.push("Businesses with the most recent and highest-rated Google reviews win the trust battle");
+  findings.push("Competitors showing up in the local 3-pack are capturing the majority of nearby searches");
 
   const variance = Math.floor(Math.random() * 20) - 10;
   score = Math.max(30, Math.min(70, score + variance));
@@ -110,24 +117,26 @@ function generateRecommendations(
   const recs: string[] = [];
 
   if (siteSpeed < 50) {
-    recs.push("Your site is loading too slowly on mobile — this is costing you leads. Most visitors leave after 3 seconds.");
+    recs.push("Your site loads slower than most competitors — every second of delay costs you leads. Customers will go to the faster option.");
   } else if (siteSpeed < 75) {
-    recs.push("Your site speed is decent but could be faster. Compressing images and cleaning up code would help.");
+    recs.push("Your site speed is average, but competitors are optimizing theirs. Compressing images and cleaning up code would give you an edge.");
+  } else {
+    recs.push("Your site speed is a competitive advantage — you're faster than most businesses in your space. Keep it that way.");
   }
 
   if (leadPlumbing < 60) {
-    recs.push("Your lead capture system likely has gaps. Forms, phone links, and CTAs should be tested monthly.");
+    recs.push("Your lead capture is weaker than top competitors. They're using automated follow-ups and integrated forms to convert more visitors into calls.");
   }
 
   if (localVisibility < 60) {
-    recs.push("Your local visibility needs work. A complete Google Business Profile with recent photos and reviews makes a big difference.");
+    recs.push("Competitors with stronger Google Business Profiles are showing up above you in local searches. Photos, reviews, and regular updates make the difference.");
   }
 
   if (competitor < 60) {
-    recs.push("Competitors may be outpacing you online. Regular updates to your site and listings help you stay visible.");
+    recs.push("Other businesses in your area are actively investing in their online presence. Without regular updates, you risk falling further behind.");
   }
 
-  recs.push("Consider a full diagnostic to identify exactly where leads are falling through the cracks.");
+  recs.push("Want the full breakdown? A detailed competitive diagnostic shows exactly where you're losing ground — and the specific steps to get ahead.");
 
   return recs;
 }
@@ -139,10 +148,12 @@ export async function runAudit(auditId: number): Promise<void> {
   try {
     const pageSpeedResult = await fetchPageSpeed(audit.websiteUrl);
     const siteSpeedScore = pageSpeedResult?.score ?? Math.floor(Math.random() * 40) + 30;
+    const speedVerdict = getSpeedVerdict(siteSpeedScore);
     const siteSpeedData = pageSpeedResult
       ? {
           metrics: pageSpeedResult.metrics,
           realData: true,
+          verdict: speedVerdict,
         }
       : {
           metrics: {
@@ -153,7 +164,8 @@ export async function runAudit(auditId: number): Promise<void> {
             speedIndex: "Unable to measure",
           },
           realData: false,
-          note: "Could not reach the site — score is estimated based on common patterns.",
+          verdict: speedVerdict,
+          note: "We couldn't reach your site directly — this score is estimated based on common patterns for similar businesses.",
         };
 
     const leadPlumbing = generateLeadPlumbingScore(audit.websiteUrl);
