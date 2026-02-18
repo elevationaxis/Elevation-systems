@@ -9,7 +9,7 @@ services:
     name: elevation-axis
     runtime: node
     plan: free
-    buildCommand: npm install && npm run build && npm run db:push
+    buildCommand: npm ci && npx tsx script/build.ts && npx drizzle-kit push
     startCommand: npm start
     healthCheckPath: /health
     envVars:
