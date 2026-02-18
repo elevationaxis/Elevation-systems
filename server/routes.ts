@@ -8,6 +8,10 @@ export async function registerRoutes(
   httpServer: Server,
   app: Express
 ): Promise<Server> {
+  app.get("/health", (_req, res) => {
+    res.status(200).json({ status: "ok" });
+  });
+
   app.post("/api/contact", async (req, res) => {
     try {
       const parsed = insertContactSchema.safeParse(req.body);
