@@ -30,10 +30,11 @@ export default function Services() {
       title: "Fix the Foundation",
       timeline: "2–4 Weeks",
       price: "Starting at $2,500",
-      priceSub: "For outdated or underperforming sites.",
-      description: "This is where we replace fragile, outdated setups. We rebuild your site so it loads fast, works on mobile, is secure, and you actually control it. No bloated platforms. No mystery vendors.",
+      priceSub: "For outdated, underperforming, or brand new sites.",
+      description: "This is where we build or rebuild your foundation. Whether you're starting from scratch with no website at all, or replacing something fragile and outdated — we build your site so it loads fast, works on mobile, is secure, and you actually control it. No bloated platforms. No mystery vendors.",
       outcome: "A fast, reliable site that can handle real demand — and that you actually own.",
       deliverables: [
+        "Brand new site builds for startups & new businesses",
         "Fast, mobile-first website rebuild",
         "Secure hosting you control",
         "No bloated platforms or mystery code",
