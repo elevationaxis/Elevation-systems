@@ -24,7 +24,7 @@ Just starting out or already running? Either way, your website should be bringin
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="/audit">
               <Button size="lg" className="rounded-none px-6 py-3 text-sm w-full sm:w-auto" data-testid="button-hero-cta">
-                See How You Stack Up
+                Get a Free Website Analysis
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
