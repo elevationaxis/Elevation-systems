@@ -18,7 +18,7 @@ export default function About() {
           </div>
           <div className="flex flex-col justify-end">
             <p className="text-xl text-muted-foreground leading-relaxed" data-testid="text-about-intro">
-              Most service businesses are spending real money on ads, SEO, and websites — but the bucket they're pouring it into has holes. Money goes in. Calls don't come out. That's where we come in.
+              Most service businesses are spending real money on ads, Google listings, and websites — but the bucket they're pouring it into has holes. Money goes in. Calls don't come out. That's where we come in.
             </p>
           </div>
         </div>
@@ -81,17 +81,17 @@ export default function About() {
                 <li className="flex items-center gap-2"><Check size={14} className="text-accent"/> High-converting websites that load fast</li>
                 <li className="flex items-center gap-2"><Check size={14} className="text-accent"/> CRM and booking integrations</li>
                 <li className="flex items-center gap-2"><Check size={14} className="text-accent"/> Lead tracking and follow-up systems</li>
-                <li className="flex items-center gap-2"><Check size={14} className="text-accent"/> Google Business and local visibility</li>
+                <li className="flex items-center gap-2"><Check size={14} className="text-accent"/> Google listing setup and local search visibility</li>
               </ul>
             </div>
             
-            <div className="bg-secondary/10 p-6 border border-border/10">
-              <h3 className="text-xl font-serif mb-4">What I Don't Do</h3>
-              <ul className="space-y-3 text-sm text-muted-foreground">
-                <li className="flex items-center gap-2"><X size={14} className="text-muted-foreground/60"/> Web design for its own sake</li>
-                <li className="flex items-center gap-2"><X size={14} className="text-muted-foreground/60"/> One-size-fits-all templates</li>
-                <li className="flex items-center gap-2"><X size={14} className="text-muted-foreground/60"/> Quick fixes that break next month</li>
-                <li className="flex items-center gap-2"><X size={14} className="text-muted-foreground/60"/> Handing you something you can't manage</li>
+            <div className="bg-foreground text-background p-6 border border-foreground">
+              <h3 className="text-xl font-serif mb-4 text-background">What I Don't Do</h3>
+              <ul className="space-y-3 text-sm text-background/70">
+                <li className="flex items-center gap-2"><X size={14} className="text-background/50"/> Pretty websites that don't bring in calls</li>
+                <li className="flex items-center gap-2"><X size={14} className="text-background/50"/> Cookie-cutter templates that look like everyone else</li>
+                <li className="flex items-center gap-2"><X size={14} className="text-background/50"/> Quick fixes that break next month</li>
+                <li className="flex items-center gap-2"><X size={14} className="text-background/50"/> Handing you something you can't manage</li>
               </ul>
             </div>
           </div>

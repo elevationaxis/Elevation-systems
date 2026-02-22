@@ -57,8 +57,8 @@ export default function Services() {
         "CRM and booking integration",
         "Call and lead tracking setup",
         "Content management you can handle",
-        "Google Business Profile optimization",
-        "Connected marketing ecosystem"
+        "Google listing setup and optimization",
+        "Everything connected and working together"
       ],
       icon: Shield,
     },
@@ -128,8 +128,8 @@ export default function Services() {
                   <p className="text-muted-foreground leading-relaxed">{phase.description}</p>
                 </div>
                 
-                <div className="p-4 bg-secondary/10 border border-border/5">
-                  <p className="text-sm font-medium">{phase.outcome}</p>
+                <div className="p-4 bg-foreground text-background border border-foreground">
+                  <p className="text-sm font-medium text-background">{phase.outcome}</p>
                 </div>
 
                 <div>

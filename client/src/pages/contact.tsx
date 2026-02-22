@@ -61,9 +61,9 @@ export default function Contact() {
       <Section className="pt-32">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           <div>
-            <h1 className="text-5xl md:text-6xl font-serif mb-6">Let's Connect</h1>
+            <h1 className="text-5xl md:text-6xl font-serif mb-6">Let's talk.</h1>
             <p className="text-xl text-muted-foreground mb-12 max-w-md">
-              Ready to bring order to the chaos? Fill out the form to inquire about a project or simply to say hello.
+              Tell me what's going on with your business and I'll let you know if I can help. No pressure, no pitch.
             </p>
 
             <div className="space-y-8">
@@ -144,7 +144,7 @@ export default function Contact() {
                       <FormLabel>How can I help?</FormLabel>
                       <FormControl>
                         <Textarea 
-                          placeholder="Tell me about your current challenges..." 
+                          placeholder="What's going on with your website or leads right now?" 
                           className="rounded-none bg-background border-border/20 focus:border-accent min-h-[150px] resize-none" 
                           {...field} 
                         />
