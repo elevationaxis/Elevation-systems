@@ -13,7 +13,7 @@ export default function Services() {
       timeline: "1–2 Weeks",
       price: "Starting at $499",
       priceSub: "Credited toward any build.",
-      description: "Before anything gets built or marketed, we look under the hood. We check where calls are going (or not going), whether forms actually notify anyone, if Google listings are working or half-broken, and how fast the site loads on phones.",
+      description: "Already have a website but not getting calls? Before we touch anything, we look under the hood. We check where leads are going (or not going), whether forms actually notify anyone, if your Google listing is working or half-broken, and how fast the site loads on phones. New business? Skip ahead to Phase 02.",
       outcome: "After this phase, you'll know exactly what's broken, what's outdated, and what's quietly costing you leads.",
       deliverables: [
         "Where leads are going (or getting lost)",
@@ -30,8 +30,8 @@ export default function Services() {
       title: "Fix the Foundation",
       timeline: "2–4 Weeks",
       price: "Starting at $2,500",
-      priceSub: "For outdated, underperforming, or brand new sites.",
-      description: "This is where we build or rebuild your foundation. Whether you're starting from scratch with no website at all, or replacing something fragile and outdated — we build your site so it loads fast, works on mobile, is secure, and you actually control it. No bloated platforms. No mystery vendors.",
+      priceSub: "For new businesses and established ones that need a fresh start.",
+      description: "This is where we build or rebuild your foundation. Just starting out with no website yet? This is your starting point — we'll build it right from day one. Already have a site that's slow, outdated, or just not working? We'll replace it with something fast, mobile-friendly, and that you actually own and control. No confusing platforms. No mystery vendors.",
       outcome: "A fast, reliable site that can handle real demand — and that you actually own.",
       deliverables: [
         "Brand new site builds for startups & new businesses",
@@ -50,9 +50,9 @@ export default function Services() {
       title: "Turn the Site Into a System",
       timeline: "2–4 Weeks",
       price: "Starting at $5,000",
-      priceSub: "For businesses that want control and visibility.",
-      description: "Now the site actually connects to how you run the business. We wire it into your booking and CRM tools, set up call and lead tracking, and give you simple ways to update content without breaking things.",
-      outcome: "Your website stops being a brochure and starts supporting growth.",
+      priceSub: "For businesses ready to connect their website to how they actually operate.",
+      description: "Once the site is solid, we connect it to the tools you use every day — your booking software, your contact forms, your follow-up process. We set up call tracking so you know where leads come from, and make it easy for you to update your own content without needing a developer every time.",
+      outcome: "Your website stops being a brochure and starts working like a real part of your business.",
       deliverables: [
         "CRM and booking integration",
         "Call and lead tracking setup",
@@ -87,9 +87,9 @@ export default function Services() {
       <Section className="bg-secondary/20 pt-32 pb-20">
         <div className="max-w-4xl">
           <span className="text-accent uppercase tracking-widest text-xs font-semibold mb-4 block" data-testid="text-services-label">How It Works</span>
-          <h1 className="text-5xl md:text-6xl font-serif mb-6" data-testid="text-services-heading">Fix the bucket first.</h1>
+          <h1 className="text-5xl md:text-6xl font-serif mb-6" data-testid="text-services-heading">Built right from the start. Fixed when it's not.</h1>
           <p className="text-xl text-muted-foreground max-w-2xl leading-relaxed" data-testid="text-services-intro">
-            You're already spending money on marketing. We make sure it actually turns into booked jobs — by finding leaks, fixing the foundation, and protecting what we build.
+            Whether you're just opening your doors or you've been running for years — if your website isn't bringing in calls, we can fix that. And if you don't have one yet, we'll build it right the first time.
           </p>
         </div>
       </Section>

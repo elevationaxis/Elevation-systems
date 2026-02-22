@@ -19,7 +19,7 @@ export default function Home() {
             <span className="italic font-light text-foreground/80">— or a liability?</span>
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed font-sans" data-testid="text-hero-sub">
-            Most service businesses are spending real money on marketing — but their website is quietly losing leads to the competition. Find out where you stand in under 30 seconds.
+Just starting out or already running? Either way, your website should be bringing in calls. Find out where you stand — or where to start — in under 30 seconds.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="/audit">
@@ -44,13 +44,13 @@ export default function Home() {
             The real problem isn't traffic.
           </h2>
           <p className="text-lg leading-relaxed mb-6 text-background/70 font-sans">
-            Most service businesses are spending real money on marketing — ads, SEO, websites — but the bucket they're pouring it into has a leak.
+Most service businesses are spending real money on marketing — ads, Google, websites — but the bucket they're pouring it into has a leak.
           </p>
           <p className="text-xl font-serif italic text-background/90 mb-6">
             Money goes in. Calls don't come out.
           </p>
           <p className="text-background/60 leading-relaxed font-sans">
-            Usually it's a website that was built once, years ago. Nobody knows where the code lives. Nobody can change the important things. Google changed. Mobile behavior changed. How customers search changed. Your website hasn't.
+Sometimes it's a website that was built once, years ago, and nobody's touched it since. Sometimes it's a brand new business that never got set up right in the first place. Either way, the result is the same — money spent, calls missed.
           </p>
         </div>
       </section>
@@ -60,7 +60,7 @@ export default function Home() {
         <div className="text-center mb-16">
           <span className="text-accent uppercase tracking-widest text-xs font-sans font-semibold mb-4 block">How It Works</span>
           <h2 className="text-4xl md:text-5xl font-serif mb-4" data-testid="text-phases-heading">Fix the foundation first.</h2>
-          <p className="text-muted-foreground max-w-xl mx-auto font-sans">So the money you're already spending turns into booked jobs.</p>
+          <p className="text-muted-foreground max-w-xl mx-auto font-sans">New business or established — every strong website starts with the same foundation.</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -76,7 +76,7 @@ export default function Home() {
             {
               label: "RESCUE",
               title: "Fix the Foundation",
-              desc: "We replace fragile, outdated setups with a fast, reliable site you actually control.",
+              desc: "Starting fresh or replacing something broken — we build a fast, reliable site you actually own and control.",
               price: "Starting at $2,500",
               icon: Wrench,
               dark: true,
@@ -84,7 +84,7 @@ export default function Home() {
             {
               label: "GUARD",
               title: "Build the System",
-              desc: "We wire your site into booking, CRM, and lead tracking so it actually supports your business.",
+              desc: "We connect your site to your booking tools, contact forms, and follow-up process so it works like a real part of your business.",
               price: "Starting at $5,000",
               icon: Shield,
               dark: true,
@@ -190,9 +190,9 @@ export default function Home() {
       {/* CTA */}
       <Section className="py-24 border-t border-border/10">
         <div className="flex flex-col items-center justify-center text-center">
-          <h2 className="text-5xl md:text-7xl font-serif mb-8" data-testid="text-cta-heading">Ready to fix the foundation?</h2>
+          <h2 className="text-5xl md:text-7xl font-serif mb-8" data-testid="text-cta-heading">Ready to build it right?</h2>
           <p className="max-w-xl text-muted-foreground mb-10 text-lg font-sans">
-            See how your website stacks up against the competition — and find out what it'll take to get ahead.
+            Starting from scratch or fixing what's already there — let's find out exactly where you stand and what it'll take to start getting calls.
           </p>
           <div className="flex flex-col sm:flex-row items-center gap-4">
             <Link href="/audit">
