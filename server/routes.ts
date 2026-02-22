@@ -3,6 +3,7 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertContactSchema, insertAuditSchema } from "@shared/schema";
 import { runAudit } from "./auditEngine";
+import { sendContactNotification, sendAuditNotification } from "./mailer";
 
 export async function registerRoutes(
   httpServer: Server,
@@ -19,6 +20,7 @@ export async function registerRoutes(
         return res.status(400).json({ message: "Invalid form data", errors: parsed.error.flatten() });
       }
       const submission = await storage.createContactSubmission(parsed.data);
+      sendContactNotification(parsed.data).catch(err => console.error("Contact email error:", err));
       return res.status(201).json({ message: "Thank you for your inquiry. I will be in touch shortly.", id: submission.id });
     } catch (error) {
       console.error("Contact form error:", error);
@@ -34,6 +36,7 @@ export async function registerRoutes(
       }
       const submission = await storage.createAuditSubmission(parsed.data);
       runAudit(submission.id).catch(err => console.error("Audit run error:", err));
+      sendAuditNotification({ ...parsed.data, auditId: submission.id }).catch(err => console.error("Audit email error:", err));
       return res.status(201).json({ id: submission.id, status: "processing" });
     } catch (error) {
       console.error("Audit creation error:", error);
