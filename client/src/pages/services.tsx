@@ -1,45 +1,44 @@
 import { Section } from "@/components/ui/section";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
-import { Check, Search, Wrench, Shield, Eye, ArrowRight } from "lucide-react";
+import { Check, Search, Wrench, Shield, Zap, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export default function Services() {
   const phases = [
     {
       number: "01",
-      label: "PREPARE",
-      title: "Find the Leaks",
-      timeline: "1–2 Weeks",
-      price: "Starting at $499",
-      priceSub: "Credited toward any build.",
-      description: "Already have a website but not getting calls? Before we touch anything, we look under the hood. We check where leads are going (or not going), whether forms actually notify anyone, if your Google listing is working or half-broken, and how fast the site loads on phones. New business? Skip ahead to Phase 02.",
-      outcome: "After this phase, you'll know exactly what's broken, what's outdated, and what's quietly costing you leads.",
+      label: "DIAGNOSE",
+      title: "Digital Footprint & Visibility Audit",
+      timeline: "1-2 Weeks",
+      price: "Starts at $499",
+      priceSub: "Credited toward any implementation.",
+      description: "A comprehensive diagnostic that reveals the gaps in your online presence — where you’re visible, where you’re invisible, and what’s costing you leads right now.",
+      outcome: "Gain a clear, actionable score of your online presence, highlighting visibility gaps, reputation leaks, and competitive blind spots.",
       deliverables: [
-        "Where leads are going (or getting lost)",
-        "Whether forms and phones actually work",
-        "Google listing health check",
-        "Site speed and mobile performance review",
-        "A clear battle plan — no guesswork"
+        "Visibility Gap Analysis",
+        "Reputation & Review Audit",
+        "Competitive Landscape Report",
+        "Lead & Conversion Flow Mapping",
+        "An Actionable Roadmap to Fix Leaks"
       ],
       icon: Search,
     },
     {
       number: "02",
-      label: "RESCUE",
-      title: "Fix the Foundation",
+      label: "STABILIZE",
+      title: "Presence Rescue & Implementation",
       timeline: "2–4 Weeks",
-      price: "Starting at $2,500",
+      price: "Starts at $2,500",
       priceSub: "For new businesses and established ones that need a fresh start.",
-      description: "This is where we build or rebuild your foundation. Just starting out with no website yet? This is your starting point — we'll build it right from day one. Already have a site that's slow, outdated, or just not working? We'll replace it with something fast, mobile-friendly, and that you actually own and control. No confusing platforms. No mystery vendors.",
-      outcome: "A fast, reliable site that can handle real demand — and that you actually own.",
+      description: "Once we know the gaps, we fix the leaks. From core website performance to Google Business optimization, reviews, and structured data — we build the foundation that drives real customer discovery.",
+      outcome: "Your business gets found, gets chosen, and gets trusted. We fix the leaks to create a stable foundation for growth.",
       deliverables: [
-        "Brand new site builds for startups & new businesses",
-        "Fast, mobile-first website rebuild",
-        "Secure hosting you control",
-        "No bloated platforms or mystery code",
-        "Clean, professional design that converts",
-        "Full ownership and access"
+        "High-Performance Website Build/Rebuild",
+        "Google Business Profile Optimization",
+        "Review & Reputation System Setup",
+        "Schema & Structured Data Implementation",
+        "Core Conversion Infrastructure"
       ],
       icon: Wrench,
       highlight: true,
@@ -47,38 +46,38 @@ export default function Services() {
     {
       number: "03",
       label: "GUARD",
-      title: "Turn the Site Into a System",
-      timeline: "2–4 Weeks",
-      price: "Starting at $5,000",
-      priceSub: "For businesses ready to connect their website to how they actually operate.",
-      description: "Once the site is solid, we connect it to the tools you use every day — your booking software, your contact forms, your follow-up process. We set up call tracking so you know where leads come from, and make it easy for you to update your own content without needing a developer every time.",
-      outcome: "Your website stops being a brochure and starts working like a real part of your business.",
+      title: "Ongoing Protection & Growth System",
+      timeline: "Monthly",
+      price: "Starts at $499/mo",
+      priceSub: "Protect your investment and ensure it grows.",
+      description: "Visibility isn’t static — it degrades without attention. We build operational systems that ensure your presence stays strong, visible, and resilient against algorithm shifts and competitive pressure.",
+      outcome: "Your digital infrastructure becomes resilient with algorithm-proof positioning, active reputation monitoring, and accelerated customer reviews.",
       deliverables: [
-        "CRM and booking integration",
-        "Call and lead tracking setup",
-        "Content management you can handle",
-        "Google listing setup and optimization",
-        "Everything connected and working together"
+        "Algorithm-Proof SEO Positioning",
+        "Active Reputation Monitoring & Alerts",
+        "Review Generation & Response System",
+        "Monthly Performance & Security Audits",
+        "Proactive Technical Maintenance"
       ],
       icon: Shield,
     },
     {
       number: "04",
-      label: "PROTECT",
-      title: "Stay Ahead While Others Drift",
-      timeline: "Monthly",
-      price: "Starting at $199/mo",
-      priceSub: "Your Brand Guardian — so nothing slips through the cracks.",
-      description: "Most businesses fail here because they stop paying attention. We don't. We set up tracking that actually works, review systems that don't rely on reminders, and keep your visibility current as rules change.",
-      outcome: "A lead system that doesn't decay. So competitors don't quietly pass you.",
+      label: "DOMINATE",
+      title: "Leadership & Authority Architecture",
+      timeline: "Quarterly Projects",
+      price: "Custom Pricing",
+      priceSub: "For clients who want to lead their market.",
+      description: "For clients who want not just stability, but market leadership. We build systems for automated lead flow, reputation amplification, and converting visibility into revenue predictably.",
+      outcome: "Generate predictable growth with automated funnels, a stacked audience credibility, and a distinct competitive advantage.",
       deliverables: [
-        "Monthly performance monitoring",
-        "Review management and responses",
-        "Seasonal content and offer updates",
-        "Technical health and security checks",
-        "Competitor visibility tracking"
+        "Automated Lead Nurturing Funnels",
+        "Content Marketing & Authority Systems",
+        "Paid Traffic & Conversion Optimization",
+        "Advanced Analytics & Performance Tracking",
+        "Strategic Market Expansion"
       ],
-      icon: Eye,
+      icon: Zap,
     }
   ];
 
@@ -86,10 +85,10 @@ export default function Services() {
     <>
       <Section className="bg-secondary/20 pt-32 pb-20">
         <div className="max-w-4xl">
-          <span className="text-accent uppercase tracking-widest text-xs font-semibold mb-4 block" data-testid="text-services-label">How It Works</span>
-          <h1 className="text-5xl md:text-6xl font-serif mb-6" data-testid="text-services-heading">Built right from the start. Fixed when it's not.</h1>
+          <span className="text-accent uppercase tracking-widest text-xs font-semibold mb-4 block" data-testid="text-services-label">Our Process</span>
+          <h1 className="text-5xl md:text-6xl font-serif mb-6" data-testid="text-services-heading">From Leaking Leads to Leading the Market</h1>
           <p className="text-xl text-muted-foreground max-w-2xl leading-relaxed" data-testid="text-services-intro">
-            Whether you're just opening your doors or you've been running for years — if your website isn't bringing in calls, we can fix that. And if you don't have one yet, we'll build it right the first time.
+            We take you through a clear, four-phase journey to transform your online presence from a cost center into a revenue driver. It's a path from diagnosis to dominance.
           </p>
         </div>
       </Section>
@@ -124,7 +123,7 @@ export default function Services() {
               
               <div className="lg:col-span-8 space-y-8">
                 <div>
-                  <h3 className="text-lg font-medium mb-2">What happens</h3>
+                  <h3 className="text-lg font-medium mb-2">The Goal</h3>
                   <p className="text-muted-foreground leading-relaxed">{phase.description}</p>
                 </div>
                 
@@ -133,7 +132,7 @@ export default function Services() {
                 </div>
 
                 <div>
-                  <h3 className="text-lg font-medium mb-4">What you get</h3>
+                  <h3 className="text-lg font-medium mb-4">Key Deliverables</h3>
                   <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
                     {phase.deliverables.map((item, i) => (
                       <li key={i} className="flex items-start gap-3 text-sm text-muted-foreground">
@@ -151,12 +150,12 @@ export default function Services() {
 
       <Section className="bg-foreground text-background py-20">
         <div className="text-center max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-serif mb-6 text-background" data-testid="text-cta-heading">Not sure where to start?</h2>
+          <h2 className="text-3xl md:text-4xl font-serif mb-6 text-background" data-testid="text-cta-heading">Ready to Start the Journey?</h2>
           <p className="text-background/70 mb-4">
-            Most clients begin with the diagnostic. It's low-risk, and the investment is credited toward any build.
+            Most clients begin with the diagnostic. It's a low-risk first step, and the investment is credited toward any future work.
           </p>
           <p className="text-background/50 text-sm mb-8">
-            No pressure. No long contracts. Just a conversation about what's leaking and how to fix it.
+            No pressure. No long contracts. Just a clear, honest conversation about what's leaking and how to fix it.
           </p>
           <Link href="/contact">
             <Button size="lg" variant="secondary" className="rounded-none px-8" data-testid="button-book-call">
