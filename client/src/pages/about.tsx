@@ -8,19 +8,14 @@ export default function About() {
   return (
     <>
       <Section className="pt-32 pb-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          <div>
-            <span className="text-accent uppercase tracking-widest text-xs font-semibold mb-4 block" data-testid="text-about-label">Built for Business Owners</span>
-             <h1 className="text-5xl md:text-7xl font-serif mb-8 leading-[0.9]" data-testid="text-about-heading">
-              Your marketing <br />
-              <span className="text-muted-foreground italic text-4xl md:text-6xl">has a leak.</span>
-            </h1>
-          </div>
-          <div className="flex flex-col justify-end">
-            <p className="text-xl text-muted-foreground leading-relaxed" data-testid="text-about-intro">
-              Most service businesses are spending real money on ads, Google listings, and websites — but the bucket they're pouring it into has holes. Money goes in. Calls don't come out. That's where we come in.
-            </p>
-          </div>
+        <div className="max-w-4xl">
+          <span className="text-accent uppercase tracking-widest text-xs font-semibold mb-4 block" data-testid="text-about-label">About Elevation Axis</span>
+          <h1 className="text-5xl md:text-6xl font-serif mb-8 leading-tight" data-testid="text-about-heading">
+            If we sat down and talked about your business — where it is, where you want it to go — I could show you exactly what's standing in the way.
+          </h1>
+          <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl" data-testid="text-about-intro">
+            That's what I do. I look at where your business lives online, find what's costing you calls, and map your digital presence to where it needs to be. Not a template. Not a guess. A real plan built around your business.
+          </p>
         </div>
       </Section>
 
