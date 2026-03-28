@@ -10,7 +10,7 @@ export default function About() {
       <Section className="pt-32 pb-16">
         <div className="max-w-4xl">
           <span className="text-accent uppercase tracking-widest text-xs font-semibold mb-4 block" data-testid="text-about-label">About Elevation Axis</span>
-          <h1 className="text-5xl md:text-6xl font-serif mb-8 leading-tight" data-testid="text-about-heading">
+          <h1 className="text-3xl md:text-4xl font-serif mb-8 leading-snug max-w-3xl" data-testid="text-about-heading">
             If we sat down and talked about your business — where it is, where you want it to go — I could show you exactly what's standing in the way.
           </h1>
           <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl" data-testid="text-about-intro">
@@ -113,12 +113,15 @@ export default function About() {
             </div>
           </div>
 
-          <div className="mt-20 p-8 text-center bg-foreground text-background">
-            <p className="text-lg md:text-xl font-serif italic mb-6" data-testid="text-about-cta-quote">
-              "You can keep spending money on marketing and hope it works. Or you can fix the bucket first."
-            </p>
+          <div className="mt-20 border-t border-border/10 pt-16">
+            <blockquote className="border-l-2 border-accent pl-6 mb-10">
+              <p className="text-xl md:text-2xl font-serif text-foreground leading-relaxed" data-testid="text-about-cta-quote">
+                &ldquo;You can keep spending money on marketing and hope it works. Or you can fix the bucket first.&rdquo;
+              </p>
+              <cite className="block mt-4 text-xs uppercase tracking-widest text-muted-foreground not-italic">Brittany Moulder &mdash; Elevation Axis</cite>
+            </blockquote>
             <Link href="/contact">
-              <Button variant="secondary" className="rounded-none px-8" data-testid="button-about-cta">Book a Call</Button>
+              <Button variant="outline" size="sm" className="rounded-none" data-testid="button-about-cta">Book a Call</Button>
             </Link>
           </div>
         </div>
