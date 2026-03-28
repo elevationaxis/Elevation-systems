@@ -1,3 +1,4 @@
+'''
 import { Section } from "@/components/ui/section";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -38,8 +39,8 @@ export default function Contact() {
     },
     onSuccess: (data) => {
       toast({
-        title: "Request Received",
-        description: data.message || "Thank you for your inquiry. I will be in touch shortly.",
+        title: "Message Received",
+        description: data.message || "Thank you. I'll be in touch within 24 hours.",
       });
       form.reset();
     },
@@ -58,40 +59,35 @@ export default function Contact() {
 
   return (
     <>
-      <Section className="pt-32">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+      <Section className="pt-32 pb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           <div>
-            <h1 className="text-5xl md:text-6xl font-serif mb-6">Let's talk.</h1>
-            <p className="text-xl text-muted-foreground mb-12 max-w-md">
-              Tell me what's going on with your business and I'll let you know if I can help. No pressure, no pitch.
+            <h1 className="text-4xl md:text-5xl font-serif mb-6 leading-tight">Let's map your path forward.</h1>
+            <p className="text-lg text-muted-foreground mb-12 max-w-md leading-relaxed">
+              This isn't a sales call. It's a diagnostic session. Tell me about your business, your goals, and what's not working. I'll give you a straightforward assessment and a clear plan.
             </p>
 
-            <div className="space-y-8">
+            <div className="space-y-6 border-t border-border/10 pt-8">
               <div>
-                <h3 className="font-serif text-xl mb-2">Contact</h3>
-                <a href="mailto:hello@elevationaxis.com" className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors">
-                  <Mail size={18} />
+                <h3 className="font-serif text-lg mb-2">Direct Contact</h3>
+                <a href="mailto:hello@elevationaxis.com" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  <Mail size={16} />
                   hello@elevationaxis.com
                 </a>
               </div>
               
               <div>
-                <h3 className="font-serif text-xl mb-2">Office</h3>
-                <div className="flex items-center gap-3 text-muted-foreground">
-                  <MapPin size={18} />
-                  <span>Remote / Worldwide</span>
+                <h3 className="font-serif text-lg mb-2">Location</h3>
+                <div className="flex items-center gap-3 text-sm text-muted-foreground">
+                  <MapPin size={16} />
+                  <span>Indianapolis, IN (Remote)</span>
                 </div>
-              </div>
-
-              <div className="pt-8 border-t border-border/10">
-                <p className="text-sm text-muted-foreground">
-                  For general inquiries, please allow 24-48 hours for a response.
-                </p>
               </div>
             </div>
           </div>
 
-          <div className="bg-secondary/10 p-8 md:p-10 border border-border/5">
+          <div className="bg-secondary/20 p-8 md:p-10 border border-border/10">
+            <h2 className="font-serif text-2xl mb-6">Book a Discovery Call</h2>
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                 <FormField
@@ -141,10 +137,10 @@ export default function Contact() {
                   name="message"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>How can I help?</FormLabel>
+                      <FormLabel>What are your current challenges?</FormLabel>
                       <FormControl>
                         <Textarea 
-                          placeholder="What's going on with your website or leads right now?" 
+                          placeholder="What's going on with your website or leads right now? What are your goals for the next 6-12 months?" 
                           className="rounded-none bg-background border-border/20 focus:border-accent min-h-[150px] resize-none" 
                           {...field} 
                         />
@@ -161,7 +157,7 @@ export default function Contact() {
                       Sending...
                     </>
                   ) : (
-                    "Send Message"
+                    "Request a Call"
                   )}
                 </Button>
               </form>
@@ -172,3 +168,4 @@ export default function Contact() {
     </>
   );
 }
+'''
