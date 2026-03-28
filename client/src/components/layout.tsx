@@ -13,6 +13,7 @@ const NAV_ITEMS = [
 ];
 
 import logoImage from '@assets/IMG_5053_1771177208965.jpg';
+import logoDark from '@assets/logo_dark_bg.jpg';
 
 export function Layout({ children }: { children: ReactNode }) {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -41,8 +42,8 @@ export function Layout({ children }: { children: ReactNode }) {
       >
         <div className="container mx-auto px-4 md:px-6 max-w-7xl flex items-center justify-between">
           <Link href="/" className="group flex items-center gap-3 no-underline cursor-pointer">
-            <div className="relative flex items-center justify-center w-12 h-12 bg-black p-1">
-              <img src={logoImage} alt="Elevation Axis Logo" className="w-full h-full object-contain" />
+            <div className="relative flex items-center justify-center w-14 h-14">
+              <img src={logoDark} alt="Elevation Axis Logo" className="w-full h-full object-cover" />
             </div>
             <span className="hidden sm:block text-xs font-semibold tracking-[0.2em] uppercase opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
               Elevation Axis
