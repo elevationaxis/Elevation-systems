@@ -1,4 +1,3 @@
-'''
 import { Section } from "@/components/ui/section";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
@@ -131,4 +130,3 @@ export default function Home() {
     </>
   );
 }
-'''
