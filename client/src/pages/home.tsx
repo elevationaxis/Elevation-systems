@@ -6,16 +6,17 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <Section className="pt-32 pb-20 text-center">
-        <div className="max-w-3xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-serif mb-6 leading-tight" data-testid="text-hero-heading">
-            Is your website an asset&hellip; or a liability?
+      <Section className="pt-28 pb-24 text-center">
+        <div className="max-w-4xl mx-auto">
+          <h1 className="text-6xl md:text-7xl lg:text-8xl font-serif mb-10 leading-[1.05] tracking-tight" data-testid="text-hero-heading">
+            Is your website an asset<br />
+            <span className="italic">&mdash; or a liability?</span>
           </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-4" data-testid="text-hero-sub">
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-3" data-testid="text-hero-sub">
             Most service businesses don&rsquo;t have a traffic problem.
             They have leaks&mdash;missed calls, broken systems, and websites that don&rsquo;t convert.
           </p>
-          <p className="text-base text-muted-foreground max-w-xl mx-auto mb-10">
+          <p className="text-base text-muted-foreground max-w-xl mx-auto mb-12">
             I find the leaks and fix the foundation&mdash;so your marketing actually works.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
