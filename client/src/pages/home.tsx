@@ -185,11 +185,8 @@ export default function Home() {
           <h2 className="text-3xl md:text-4xl font-serif mb-6" data-testid="text-authority-heading">
             This isn&rsquo;t theory. It&rsquo;s pattern recognition.
           </h2>
-          <p className="text-muted-foreground text-lg leading-relaxed mb-4">
-            Before Elevation Axis, I watched too many good businesses waste money on marketing that never paid off.
-          </p>
           <p className="text-muted-foreground text-lg leading-relaxed mb-10">
-            Not because the ads were bad&mdash;but because the foundation underneath was broken.
+            Every local business has the same gaps. I find yours, fix them in the right order, and build the infrastructure that actually holds.
           </p>
           <Link href="/about">
             <Button variant="outline" size="lg" className="rounded-none px-8">

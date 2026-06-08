@@ -113,7 +113,7 @@ export function Layout({ children }: { children: ReactNode }) {
                 </span>
               </div>
               <p className="text-background/60 max-w-xs font-light">
-                We find where leads are leaking and seal the foundation. Growth systems for local businesses.
+                We build the systems that turn local businesses into local brands.
               </p>
             </div>
 
