@@ -14,7 +14,7 @@ export default function About() {
             If we sat down and talked about your business — where it is, where you want it to go — I could show you exactly what's standing in the way.
           </h1>
           <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl" data-testid="text-about-intro">
-            That's what I do. I look at where your business lives online, find what's costing you calls, and map your digital presence to where it needs to be. Not a template. Not a guess. A real plan built around your business.
+            That&rsquo;s what I do. I look at where your business lives online, find what&rsquo;s standing in the way, and map your digital presence to where it needs to be. Not a template. Not a guess. A real plan built around your business.
           </p>
         </div>
       </Section>
@@ -116,7 +116,7 @@ export default function About() {
           <div className="mt-20 border-t border-border/10 pt-16">
             <blockquote className="border-l-2 border-accent pl-6 mb-10">
               <p className="text-xl md:text-2xl font-serif text-foreground leading-relaxed" data-testid="text-about-cta-quote">
-                &ldquo;You can keep spending money on marketing and hope it works. Or you can fix the bucket first.&rdquo;
+                &ldquo;You can keep spending money on marketing and hope it works. Or you can fix the foundation and know it does.&rdquo;
               </p>
               <cite className="block mt-4 text-xs uppercase tracking-widest text-muted-foreground not-italic">Brittany Moulder &mdash; Elevation Axis</cite>
             </blockquote>

@@ -69,10 +69,10 @@ export default function Home() {
         <div className="max-w-3xl mx-auto text-center">
           <span className="text-accent uppercase tracking-widest text-xs font-semibold mb-4 block">What I Do</span>
           <h2 className="text-3xl md:text-4xl font-serif mb-6" data-testid="text-whatido-heading">
-            I fix what&rsquo;s costing you calls.
+            I build the foundation your business deserves.
           </h2>
           <p className="text-lg text-muted-foreground mb-10 max-w-2xl mx-auto">
-            I rebuild your digital presence so the money you&rsquo;re already spending on marketing actually turns into booked jobs.
+            I build and fix the digital infrastructure that makes your business look credible, get found, and convert — before you spend another dollar on marketing.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left max-w-2xl mx-auto">
             {[
@@ -123,10 +123,10 @@ export default function Home() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center max-w-5xl mx-auto">
           {[
-            { title: "Diagnose", desc: "I audit your entire online presence and find every revenue leak." },
-            { title: "Stabilize", desc: "We rebuild the foundation so everything works — fast, clean, and reliable." },
-            { title: "Guard", desc: "Your systems are protected so leads don't fall through the cracks." },
-            { title: "Grow", desc: "Now your marketing compounds instead of leaking." },
+            { title: "Diagnose", desc: "A full audit of your digital presence — website, Google listing, social profiles, booking flow, search visibility. We find every place a potential customer could find you and lose you." },
+            { title: "Build", desc: "We build what's missing and fix what's broken. A website that loads fast and converts. A Google profile that ranks. A booking flow with no dead ends." },
+            { title: "Activate", desc: "Reviews, content, local SEO, paid campaigns — now that the foundation is right, everything you put on top of it actually works." },
+            { title: "Protect", desc: "Monthly maintenance, strategy check-ins, and ongoing build-out. Your digital presence isn't a one-time project — it's infrastructure that needs to keep performing." },
           ].map((phase, i) => (
             <div key={i}>
               <div className="flex items-center justify-center w-12 h-12 bg-secondary/30 text-accent rounded-full mx-auto mb-4 font-serif text-lg">{i + 1}</div>
@@ -141,10 +141,10 @@ export default function Home() {
       <Section className="bg-foreground text-background py-20">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-serif mb-4 text-background" data-testid="text-who-heading">
-            Built for businesses that rely on calls.
+            Built for businesses that mean it.
           </h2>
           <p className="text-background/70 max-w-xl mx-auto">
-            If your business depends on leads, appointments, or booked jobs&mdash;this matters.
+            If you want your business to be found, trusted, and chosen — this is where it starts.
           </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto mb-10">

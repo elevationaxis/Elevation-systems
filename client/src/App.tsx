@@ -11,8 +11,9 @@ import About from "@/pages/about";
 import Contact from "@/pages/contact";
 import Resources from "@/pages/resources";
 import Audit from "@/pages/audit";
+import { SplashScreen } from "@/components/splash-screen";
 import { useLocation } from "wouter";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 function ScrollToTop() {
   const [pathname] = useLocation();
@@ -42,10 +43,20 @@ function Router() {
 }
 
 function App() {
+  const [showSplash, setShowSplash] = useState(() => {
+    return !sessionStorage.getItem("splashShown");
+  });
+
+  const handleSplashComplete = () => {
+    sessionStorage.setItem("splashShown", "true");
+    setShowSplash(false);
+  };
+
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
+        {showSplash && <SplashScreen onComplete={handleSplashComplete} />}
         <Router />
       </TooltipProvider>
     </QueryClientProvider>
