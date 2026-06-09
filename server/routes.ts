@@ -61,6 +61,40 @@ export async function registerRoutes(
     }
   });
 
+  // Admin dashboard — password-protected submissions view
+  const ADMIN_KEY = process.env.ADMIN_PASSWORD || "elevationaxis2026";
+
+  app.get("/api/admin/submissions", async (req, res) => {
+    try {
+      const key = req.headers["x-admin-key"];
+      if (key !== ADMIN_KEY) {
+        return res.status(401).json({ message: "Unauthorized" });
+      }
+      const submissions = await storage.getAllAuditSubmissions();
+      const total = submissions.length;
+      const oneWeekAgo = new Date();
+      oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
+      const thisWeek = submissions.filter(s =>
+        new Date(s.createdAt) >= oneWeekAgo
+      ).length;
+      const completed = submissions.filter(s => s.overallScore !== null);
+      const avgScore = completed.length > 0
+        ? Math.round(completed.reduce((sum, s) => sum + (s.overallScore || 0), 0) / completed.length)
+        : 0;
+      return res.json({
+        submissions: submissions.sort(
+          (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+        ),
+        total,
+        thisWeek,
+        avgScore,
+      });
+    } catch (error) {
+      console.error("Admin fetch error:", error);
+      return res.status(500).json({ message: "Something went wrong." });
+    }
+  });
+
   // Resource gate — record email, return signed download path
   const RESOURCE_MAP: Record<string, string> = {
     "website-leak-checklist": "/downloads/EAWebsiteLeakChecklist.pdf",
