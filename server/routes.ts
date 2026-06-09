@@ -38,9 +38,9 @@ export async function registerRoutes(
       runAudit(submission.id, storage).catch(err => console.error("Audit run error:", err));
       sendAuditNotification({ ...parsed.data, auditId: submission.id }).catch(err => console.error("Audit email error:", err));
       return res.status(201).json({ id: submission.id, status: "processing" });
-    } catch (error) {
+    } catch (error: any) {
       console.error("Audit creation error:", error);
-      return res.status(500).json({ message: "Something went wrong. Please try again." });
+      return res.status(500).json({ message: "Something went wrong. Please try again.", detail: error?.message || String(error) });
     }
   });
 
