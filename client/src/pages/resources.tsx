@@ -83,13 +83,13 @@ export default function Resources() {
         </div>
 
         <div className="mt-24 p-10 bg-foreground text-background text-center">
-          <h2 className="text-3xl font-serif mb-4 text-background">Want a free look at your site?</h2>
+          <h2 className="text-3xl font-serif mb-4 text-background">Want to know where you&rsquo;re leaking?</h2>
           <p className="text-background/70 font-sans mb-8 max-w-xl mx-auto">
-            Run a free competitive analysis and see how your website stacks up against local competitors — site speed, lead capture, and more.
+            Get a free audit of your digital presence &mdash; no pitch, no pressure.
           </p>
           <Link href="/audit">
             <Button variant="secondary" className="rounded-none px-8">
-              Run the Free Analysis
+              Get My Free Audit
             </Button>
           </Link>
         </div>
