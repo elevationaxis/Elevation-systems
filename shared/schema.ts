@@ -52,6 +52,13 @@ export const auditSubmissions = pgTable("audit_submissions", {
   competitorScore: integer("competitor_score"),
   competitorData: jsonb("competitor_data"),
   recommendations: jsonb("recommendations"),
+  visibilityLeak: jsonb("visibility_leak"),
+  trustLeak: jsonb("trust_leak"),
+  conversionLeak: jsonb("conversion_leak"),
+  responseLeak: jsonb("response_leak"),
+  growthLeak: jsonb("growth_leak"),
+  biggestLeak: jsonb("biggest_leak"),
+  competitors: jsonb("competitors"),
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 
