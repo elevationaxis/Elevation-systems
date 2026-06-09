@@ -285,6 +285,43 @@ function BiggestLeakBlock({ leak }: { leak: BiggestLeak }) {
   );
 }
 
+// ── If This Were My Business ─────────────────────────────────────────────────
+
+function IfThisWereMyBusiness({ leak }: { leak: BiggestLeak }) {
+  const messages: Record<string, string> = {
+    "Visibility Leak": "I'd fix the Visibility Leak first. It doesn't matter how good your work is if customers can't find you when they're searching. Getting your Google presence right is the move that produces results fastest — and everything else builds on top of it.",
+    "Trust Leak": "I'd fix the Trust Leak first. Your competitors are winning before customers ever call — not because they're better, but because they look more established. Closing the review gap is the fastest move that produces real revenue change. Everything else compounds better once trust is there.",
+    "Conversion Leak": "I'd fix the Conversion Leak first. You're already getting traffic — which means you're already spending time or money to be visible. Fixing the conversion path turns what you already have into actual booked jobs. That's the fastest return without spending another dollar on marketing.",
+    "Response Leak": "I'd fix the Response Leak first. A lead that doesn't get a response in the first few minutes usually doesn't become a customer. The job is almost done — someone found you and reached out. The system just isn't catching them. That's fixable fast and the return is immediate.",
+    "Growth Leak": "I'd fix the Growth Leak first. Right now your competitors are compounding — more reviews, more content, stronger rankings — while you're starting from the same place every month. Building the system that makes growth automatic is what separates businesses that plateau from ones that pull away.",
+  };
+
+  const message = messages[leak.name] || messages["Visibility Leak"];
+
+  return (
+    <div className="border border-border/10 p-8 md:p-10 bg-secondary/5 mb-8">
+      <div className="text-xs uppercase tracking-widest text-muted-foreground mb-4">
+        If This Were My Business
+      </div>
+      <p className="font-serif text-xl md:text-2xl leading-snug mb-4">
+        I&rsquo;d fix the <span style={{ color: SEV_COLOR[leak.severity] }}>{leak.name}</span> first.
+      </p>
+      <p className="text-muted-foreground leading-relaxed">
+        {message.split(". ").slice(1).join(". ")}
+      </p>
+      <div className="mt-6 pt-5 border-t border-border/10 flex items-center gap-3">
+        <div className="w-8 h-8 rounded-full bg-secondary/20 overflow-hidden shrink-0">
+          <img src="/brittany.jpg" alt="Brittany Moulder" className="w-full h-full object-cover" />
+        </div>
+        <div>
+          <div className="text-sm font-medium">Brittany Moulder</div>
+          <div className="text-xs text-muted-foreground">Founder, Elevation Axis</div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // ── PDF Generator ─────────────────────────────────────────────────────────────
 
 function generatePDF(audit: AuditResult) {
@@ -735,6 +772,7 @@ function AuditResults({ auditId }: { auditId: number }) {
 
         {/* Biggest leak */}
         {audit.biggestLeak && <BiggestLeakBlock leak={audit.biggestLeak} />}
+        {audit.biggestLeak && <IfThisWereMyBusiness leak={audit.biggestLeak} />}
 
         {/* Recommendations */}
         {audit.recommendations && (audit.recommendations as string[]).length > 0 && (
