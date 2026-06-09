@@ -53,6 +53,21 @@ export const auditSubmissions = pgTable("audit_submissions", {
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 
+export const resourceUnlocks = pgTable("resource_unlocks", {
+  id: serial("id").primaryKey(),
+  email: text("email").notNull(),
+  resourceKey: text("resource_key").notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+export const insertResourceUnlockSchema = z.object({
+  email: z.string().email("Please enter a valid email"),
+  resourceKey: z.string().min(1),
+});
+
+export type InsertResourceUnlock = z.infer<typeof insertResourceUnlockSchema>;
+export type ResourceUnlock = typeof resourceUnlocks.$inferSelect;
+
 export const insertAuditSchema = z.object({
   businessName: z.string().min(2, "Business name is required"),
   email: z.string().email("Please enter a valid email"),

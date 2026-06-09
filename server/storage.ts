@@ -1,4 +1,4 @@
-import { type User, type InsertUser, type ContactSubmission, type InsertContact, type AuditSubmission, users, contactSubmissions, auditSubmissions } from "@shared/schema";
+import { type User, type InsertUser, type ContactSubmission, type InsertContact, type AuditSubmission, type InsertResourceUnlock, type ResourceUnlock, users, contactSubmissions, auditSubmissions, resourceUnlocks } from "@shared/schema";
 import { db } from "./db";
 import { eq } from "drizzle-orm";
 
@@ -10,6 +10,7 @@ export interface IStorage {
   createAuditSubmission(data: { businessName: string; email: string; websiteUrl: string }): Promise<AuditSubmission>;
   getAuditSubmission(id: number): Promise<AuditSubmission | undefined>;
   updateAuditSubmission(id: number, data: Partial<AuditSubmission>): Promise<AuditSubmission>;
+  createResourceUnlock(data: InsertResourceUnlock): Promise<ResourceUnlock>;
 }
 
 export class DatabaseStorage implements IStorage {
@@ -51,6 +52,11 @@ export class DatabaseStorage implements IStorage {
   async updateAuditSubmission(id: number, data: Partial<AuditSubmission>): Promise<AuditSubmission> {
     const [updated] = await db.update(auditSubmissions).set(data).where(eq(auditSubmissions.id, id)).returning();
     return updated;
+  }
+
+  async createResourceUnlock(data: InsertResourceUnlock): Promise<ResourceUnlock> {
+    const [record] = await db.insert(resourceUnlocks).values(data).returning();
+    return record;
   }
 }
 

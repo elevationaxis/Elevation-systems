@@ -1,7 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { insertContactSchema, insertAuditSchema } from "@shared/schema";
+import { insertContactSchema, insertAuditSchema, insertResourceUnlockSchema } from "@shared/schema";
 import { runAudit } from "./auditEngine";
 import { sendContactNotification, sendAuditNotification } from "./mailer";
 
@@ -58,6 +58,31 @@ export async function registerRoutes(
     } catch (error) {
       console.error("Audit fetch error:", error);
       return res.status(500).json({ message: "Something went wrong." });
+    }
+  });
+
+  // Resource gate — record email, return signed download path
+  const RESOURCE_MAP: Record<string, string> = {
+    "website-leak-checklist": "/downloads/EAWebsiteLeakChecklist.pdf",
+    "google-listing-guide": "/downloads/EAGoogleListingQuickFixGuide.pdf",
+  };
+
+  app.post("/api/resource-unlock", async (req, res) => {
+    try {
+      const parsed = insertResourceUnlockSchema.safeParse(req.body);
+      if (!parsed.success) {
+        return res.status(400).json({ message: "Invalid request", errors: parsed.error.flatten() });
+      }
+      const { email, resourceKey } = parsed.data;
+      const downloadPath = RESOURCE_MAP[resourceKey];
+      if (!downloadPath) {
+        return res.status(404).json({ message: "Resource not found" });
+      }
+      await storage.createResourceUnlock({ email, resourceKey });
+      return res.status(200).json({ downloadUrl: downloadPath });
+    } catch (error) {
+      console.error("Resource unlock error:", error);
+      return res.status(500).json({ message: "Something went wrong. Please try again." });
     }
   });
 
