@@ -119,7 +119,7 @@ export default function Services() {
             Our Process
           </span>
           <h1 className="text-5xl md:text-7xl font-serif leading-tight mb-6" data-testid="text-services-heading">
-            From Digital Chaos<br />to Market Dominance
+            This isn&rsquo;t theory.<br />It&rsquo;s pattern recognition.
           </h1>
           <p className="text-lg text-background/65 max-w-2xl leading-relaxed">
             We diagnose, rebuild, integrate, and protect your entire digital presence — so your business gets found, chosen, and trusted. Consistently.
