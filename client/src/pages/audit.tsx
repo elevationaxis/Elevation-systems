@@ -855,7 +855,7 @@ export default function Audit() {
 
   return (
     <>
-      <section className="relative min-h-[52vh] flex items-center justify-center overflow-hidden">
+      <section className="relative pt-32 pb-10 flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-secondary/40 via-background to-background" />
         <div className="container px-4 text-center max-w-3xl">
           <span className="text-accent uppercase tracking-widest text-xs font-semibold mb-4 block">Free Revenue Leak Report</span>

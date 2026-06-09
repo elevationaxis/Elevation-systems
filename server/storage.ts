@@ -36,11 +36,13 @@ export class DatabaseStorage implements IStorage {
     return submission;
   }
 
-  async createAuditSubmission(data: { businessName: string; email: string; websiteUrl: string }): Promise<AuditSubmission> {
+  async createAuditSubmission(data: { businessName: string; email: string; websiteUrl: string; city?: string; industry?: string }): Promise<AuditSubmission> {
     const [submission] = await db.insert(auditSubmissions).values({
       businessName: data.businessName,
       email: data.email,
       websiteUrl: data.websiteUrl,
+      city: data.city ?? "",
+      industry: data.industry ?? "",
       status: "processing",
     }).returning();
     return submission;

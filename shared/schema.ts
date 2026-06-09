@@ -39,6 +39,8 @@ export const auditSubmissions = pgTable("audit_submissions", {
   businessName: text("business_name").notNull(),
   email: text("email").notNull(),
   websiteUrl: text("website_url").notNull(),
+  city: text("city").default(""),
+  industry: text("industry").default(""),
   status: text("status").notNull().default("processing"),
   overallScore: integer("overall_score"),
   siteSpeedScore: integer("site_speed_score"),
@@ -72,6 +74,8 @@ export const insertAuditSchema = z.object({
   businessName: z.string().min(2, "Business name is required"),
   email: z.string().email("Please enter a valid email"),
   websiteUrl: z.string().url("Please enter a valid website URL"),
+  city: z.string().min(1, "City is required"),
+  industry: z.string().min(1, "Industry is required"),
 });
 
 export type InsertAudit = z.infer<typeof insertAuditSchema>;

@@ -35,7 +35,7 @@ export async function registerRoutes(
         return res.status(400).json({ message: "Invalid form data", errors: parsed.error.flatten() });
       }
       const submission = await storage.createAuditSubmission(parsed.data);
-      runAudit(submission.id).catch(err => console.error("Audit run error:", err));
+      runAudit(submission.id, storage).catch(err => console.error("Audit run error:", err));
       sendAuditNotification({ ...parsed.data, auditId: submission.id }).catch(err => console.error("Audit email error:", err));
       return res.status(201).json({ id: submission.id, status: "processing" });
     } catch (error) {
