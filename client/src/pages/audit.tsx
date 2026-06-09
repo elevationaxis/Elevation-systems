@@ -513,16 +513,13 @@ export default function Audit() {
       <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-secondary/40 via-background to-background"></div>
         <div className="container px-4 md:px-6 text-center max-w-3xl animate-in slide-in-from-bottom-8 duration-700 fade-in">
-          <span className="text-accent uppercase tracking-widest text-xs font-semibold mb-4 block">Free Competitive Analysis</span>
+          <span className="text-accent uppercase tracking-widest text-xs font-semibold mb-4 block">Free Analysis</span>
           <h1 className="text-5xl md:text-7xl leading-tight mb-6 font-serif" data-testid="text-audit-title">
-            How do you stack up <br/>
-            <span className="italic font-light text-foreground/80">against the competition?</span>
+            Let&rsquo;s find out<br />
+            <span className="italic font-light text-foreground/80">where you&rsquo;re leaking.</span>
           </h1>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-4 leading-relaxed" data-testid="text-audit-sub">
-            See how your website compares to competitors in your area — site speed, lead capture, local visibility, and more. Results in under 30 seconds.
-          </p>
-          <p className="text-sm text-muted-foreground/70 mb-8">
-            No credit card. No obligation. Just the competitive intel you need.
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed" data-testid="text-audit-sub">
+            I&rsquo;ll audit your digital presence and show you exactly what&rsquo;s costing you visibility, credibility, and calls. No pitch. No pressure. Just clarity on where you stand.
           </p>
         </div>
       </section>
@@ -581,8 +578,8 @@ export default function Audit() {
                       Analyzing...
                     </>
                   ) : (
-                    <>
-                      See How You Stack Up
+                                        <>
+                      Send My Audit
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </>
                   )}
@@ -591,21 +588,7 @@ export default function Audit() {
             </Form>
           </div>
 
-          <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            {[
-              { icon: Activity, label: "Site Speed" },
-              { icon: Phone, label: "Lead Capture" },
-              { icon: MapPin, label: "Visibility" },
-              { icon: Users, label: "Competitors" },
-            ].map(({ icon: Icon, label }) => (
-              <div key={label} className="flex flex-col items-center gap-2">
-                <div className="w-12 h-12 flex items-center justify-center border border-border/10">
-                  <Icon size={20} className="text-muted-foreground" />
-                </div>
-                <span className="text-xs text-muted-foreground">{label}</span>
-              </div>
-            ))}
-          </div>
+
         </div>
       </Section>
     </>
