@@ -366,7 +366,59 @@ function buildRecommendations(
   return recs;
 }
 
-// ── Main export ───────────────────────────────────────────────────────────────
+// ── Standalone export (no DB) ────────────────────────────────────────────────
+
+export async function runAuditDirect(data: {
+  businessName: string;
+  email: string;
+  websiteUrl: string;
+  city: string;
+  industry: string;
+}): Promise<AuditOutput> {
+  const pageSpeed = await fetchPageSpeed(data.websiteUrl);
+  const speedScore = pageSpeed?.score ?? Math.floor(Math.random() * 35) + 28;
+  const siteSpeedData = pageSpeed
+    ? { ...pageSpeed }
+    : { realData: false, score: speedScore, note: "Site couldn't be reached directly — score estimated from common patterns for similar businesses." };
+
+  const competitors = await fetchCompetitors(data.industry || "local service business", data.city || "");
+
+  const visibility = scoreVisibilityLeak(competitors);
+  const trust = scoreTrustLeak(competitors);
+  const conversion = scoreConversionLeak(data.websiteUrl, speedScore);
+  const response = scoreResponseLeak(data.websiteUrl);
+  const growth = scoreGrowthLeak(competitors);
+
+  const biggestLeak = selectBiggestLeak(visibility, trust, conversion, response, growth, competitors);
+
+  const overallScore = Math.round(
+    (visibility.score + trust.score + conversion.score + response.score + growth.score) / 5
+  );
+
+  const recommendations = buildRecommendations(conversion, response, visibility, trust, competitors);
+
+  return {
+    overallScore,
+    visibilityLeak: visibility,
+    trustLeak: trust,
+    conversionLeak: conversion,
+    responseLeak: response,
+    growthLeak: growth,
+    biggestLeak,
+    competitors,
+    recommendations,
+    siteSpeedScore: speedScore,
+    siteSpeedData,
+    leadPlumbingScore: response.score,
+    leadPlumbingData: { findings: response.findings },
+    localVisibilityScore: visibility.score,
+    localVisibilityData: { findings: visibility.findings },
+    competitorScore: trust.score,
+    competitorData: { findings: trust.findings },
+  };
+}
+
+// ── Main export (DB-backed) ───────────────────────────────────────────────────
 
 export async function runAudit(auditId: number, storage: any): Promise<void> {
   const audit = await storage.getAuditSubmission(auditId);

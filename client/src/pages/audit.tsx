@@ -6,7 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
 import {
   Loader2, ArrowRight, Eye, ShieldCheck, Zap, Phone, TrendingUp,
   TrendingDown, Minus, Download, CheckCircle2, AlertTriangle, XCircle, Globe,
@@ -659,62 +659,13 @@ function generatePDF(audit: AuditResult) {
 
 // ── Results ───────────────────────────────────────────────────────────────────
 
-function AuditResults({ auditId }: { auditId: number }) {
-  const { data: audit, isLoading, error } = useQuery<AuditResult>({
-    queryKey: ["/api/audit", auditId],
-    queryFn: async () => {
-      const res = await fetch(`/api/audit/${auditId}`);
-      if (!res.ok) throw new Error("Failed");
-      return res.json();
-    },
-    refetchInterval: (q) => {
-      const d = q.state.data;
-      if (!d || d.status === "processing") return 3000;
-      return false;
-    },
-    retry: 2,
-  });
-
+function AuditResults({ audit }: { audit: AuditResult }) {
   useEffect(() => {
-    if (audit?.status === "complete" && audit.overallScore !== null) {
+    if (audit.overallScore !== null) {
       const t = setTimeout(() => generatePDF(audit), 1400);
       return () => clearTimeout(t);
     }
-  }, [audit?.status]);
-
-  if (error) return (
-    <section className="pt-32 pb-20 container max-w-2xl mx-auto text-center">
-      <h2 className="font-serif text-4xl mb-4">Unable to load results</h2>
-      <p className="text-muted-foreground mb-8">Something went wrong. Reach out and we'll run a manual review.</p>
-      <Link href="/contact"><Button size="lg" className="rounded-none px-8">Get in Touch</Button></Link>
-    </section>
-  );
-
-  if (isLoading || !audit || audit.status === "processing") return (
-    <section className="pt-32 pb-20 container max-w-3xl mx-auto text-center">
-      <div className="inline-flex items-center gap-3 mb-6 px-4 py-2 border border-border/10 text-sm">
-        <Loader2 className="h-4 w-4 animate-spin" /> Pulling live competitor data...
-      </div>
-      <h2 className="font-serif text-4xl md:text-5xl mb-4">Scanning Your Market</h2>
-      <p className="text-muted-foreground text-lg mb-12">We're analyzing your site and pulling real competitors from Google. About 20–30 seconds.</p>
-      <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-        {["Visibility", "Trust", "Conversion", "Response", "Growth"].map(l => (
-          <div key={l} className="border border-border/10 p-5 bg-secondary/10 animate-pulse">
-            <div className="w-12 h-12 rounded-full bg-border/10 mx-auto mb-2" />
-            <div className="h-2.5 bg-border/10 w-16 mx-auto" />
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-
-  if (audit.status === "failed") return (
-    <section className="pt-32 pb-20 container max-w-2xl mx-auto text-center">
-      <h2 className="font-serif text-4xl mb-4">Something went wrong</h2>
-      <p className="text-muted-foreground mb-8">We couldn't complete the analysis. Some sites block automated checks. Reach out and we'll do a manual review.</p>
-      <Link href="/contact"><Button size="lg" className="rounded-none px-8">Get in Touch</Button></Link>
-    </section>
-  );
+  }, []);
 
   const sc = audit.overallScore || 0;
   const verdict = sc >= 75 ? "Your foundation is solid — time to grow."
@@ -830,7 +781,8 @@ const INDUSTRIES = [
 ];
 
 export default function Audit() {
-  const [auditId, setAuditId] = useState<number | null>(null);
+  const [auditResult, setAuditResult] = useState<AuditResult | null>(null);
+  const [formData, setFormData] = useState<FormValues | null>(null);
   const { toast } = useToast();
 
   const form = useForm<FormValues>({
@@ -843,7 +795,11 @@ export default function Audit() {
       const res = await apiRequest("POST", "/api/audit", values);
       return res.json();
     },
-    onSuccess: (data) => setAuditId(data.id),
+    onSuccess: (data, variables) => {
+      // Merge form values into result so businessName/city are available for display
+      setFormData(variables);
+      setAuditResult({ ...data, businessName: variables.businessName, city: variables.city, websiteUrl: variables.websiteUrl, industry: variables.industry });
+    },
     onError: () => toast({
       title: "Something went wrong",
       description: "Please try again or email hello@elevationaxis.com directly.",
@@ -851,7 +807,25 @@ export default function Audit() {
     }),
   });
 
-  if (auditId) return <AuditResults auditId={auditId} />;
+  if (submitMutation.isPending) return (
+    <section className="pt-32 pb-20 container max-w-3xl mx-auto text-center">
+      <div className="inline-flex items-center gap-3 mb-6 px-4 py-2 border border-border/10 text-sm">
+        <Loader2 className="h-4 w-4 animate-spin" /> Pulling live competitor data...
+      </div>
+      <h2 className="font-serif text-4xl md:text-5xl mb-4">Scanning Your Market</h2>
+      <p className="text-muted-foreground text-lg mb-12">We're analyzing your site and pulling real competitors from Google. About 20–30 seconds.</p>
+      <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+        {["Visibility", "Trust", "Conversion", "Response", "Growth"].map(l => (
+          <div key={l} className="border border-border/10 p-5 bg-secondary/10 animate-pulse">
+            <div className="w-12 h-12 rounded-full bg-border/10 mx-auto mb-2" />
+            <div className="h-2.5 bg-border/10 w-16 mx-auto" />
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+
+  if (auditResult) return <AuditResults audit={auditResult} />;
 
   return (
     <>

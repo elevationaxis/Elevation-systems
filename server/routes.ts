@@ -2,7 +2,7 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertContactSchema, insertAuditSchema, insertResourceUnlockSchema } from "@shared/schema";
-import { runAudit } from "./auditEngine";
+import { runAudit, runAuditDirect } from "./auditEngine";
 import { sendContactNotification, sendAuditNotification } from "./mailer";
 
 export async function registerRoutes(
@@ -34,12 +34,12 @@ export async function registerRoutes(
       if (!parsed.success) {
         return res.status(400).json({ message: "Invalid form data", errors: parsed.error.flatten() });
       }
-      const submission = await storage.createAuditSubmission(parsed.data);
-      runAudit(submission.id, storage).catch(err => console.error("Audit run error:", err));
-      sendAuditNotification({ ...parsed.data, auditId: submission.id }).catch(err => console.error("Audit email error:", err));
-      return res.status(201).json({ id: submission.id, status: "processing" });
+      // Run audit directly — no DB required
+      const results = await runAuditDirect(parsed.data);
+      sendAuditNotification({ ...parsed.data, auditId: 0 }).catch(err => console.error("Audit email error:", err));
+      return res.status(200).json({ status: "complete", ...results });
     } catch (error: any) {
-      console.error("Audit creation error:", error);
+      console.error("Audit error:", error);
       return res.status(500).json({ message: "Something went wrong. Please try again.", detail: error?.message || String(error) });
     }
   });
