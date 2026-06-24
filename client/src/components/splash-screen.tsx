@@ -48,7 +48,7 @@ export function SplashScreen({ onComplete }: { onComplete: () => void }) {
           opacity: phase === "in" ? 1 : 1,
         }}
       >
-        We build the systems that turn local businesses into local brands.
+        Is your website an asset — or a liability?
       </p>
       <p
         style={{

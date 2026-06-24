@@ -9,8 +9,8 @@ export default function Home() {
       <Section className="pt-28 pb-24 text-center">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-6xl md:text-7xl lg:text-8xl font-serif mb-10 leading-[1.05] tracking-tight" data-testid="text-hero-heading">
-            Is your website an asset<br />
-            <span className="italic">&mdash; or a liability?</span>
+            We build the systems that turn<br />
+            <span className="italic">local businesses into local brands.</span>
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-3" data-testid="text-hero-sub">
             Most service businesses don&rsquo;t have a traffic problem.
