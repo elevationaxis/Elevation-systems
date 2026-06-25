@@ -8,7 +8,6 @@ import { useToast } from "@/hooks/use-toast";
 import { useMutation } from "@tanstack/react-query";
 import { Loader2, Flame, CheckCircle2 } from "lucide-react";
 import { apiRequest } from "@/lib/queryClient";
-import { Section } from "@/components/layout";
 
 // ── Schema ────────────────────────────────────────────────────────────────────
 
@@ -56,7 +55,7 @@ export default function Roast() {
   // ── Success state ────────────────────────────────────────────────────────────
   if (mutation.isSuccess) {
     return (
-      <Section className="pt-32 pb-24 text-center">
+      <div className="px-6 pt-32 pb-24 text-center">
         <div className="max-w-lg mx-auto">
           <CheckCircle2 className="w-12 h-12 mx-auto mb-6 text-[#C9A84C]" />
           <h2 className="text-3xl font-serif mb-4">Got it. I'll take a look.</h2>
@@ -67,7 +66,7 @@ export default function Roast() {
             No pitch. No pressure. Just a straight answer.
           </p>
         </div>
-      </Section>
+      </div>
     );
   }
 
@@ -75,7 +74,7 @@ export default function Roast() {
   return (
     <>
       {/* Hero */}
-      <Section className="pt-32 pb-16 text-center">
+      <div className="px-6 pt-32 pb-16 text-center">
         <div className="max-w-3xl mx-auto">
           <p className="text-xs tracking-[0.2em] uppercase text-[#C9A84C] mb-6 font-medium">
             Free · No Pitch · No Pressure
@@ -91,10 +90,10 @@ export default function Roast() {
             You'll hear back within 24–48 hours. No automated report. A real person, looking at your actual site.
           </p>
         </div>
-      </Section>
+      </div>
 
       {/* What you get */}
-      <Section className="py-12 border-t border-b border-border/40">
+      <div className="px-6 py-12 border-t border-b border-border/40">
         <div className="max-w-3xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
           {[
             { label: "First impression", desc: "What a potential customer sees — and whether it builds trust or loses it in the first 5 seconds." },
@@ -105,12 +104,12 @@ export default function Roast() {
               <p className="text-xs tracking-[0.15em] uppercase text-[#C9A84C] mb-2 font-medium">{item.label}</p>
               <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
             </div>
-          ))}
+          )          )}
         </div>
-      </Section>
+      </div>
 
       {/* Form */}
-      <Section className="pt-16 pb-24">
+      <div className="px-6 pt-16 pb-24">
         <div className="max-w-xl mx-auto">
           <div className="border border-border/60 bg-card p-8 md:p-10">
             <div className="flex items-center gap-3 mb-8">
@@ -201,10 +200,10 @@ export default function Roast() {
             </Form>
           </div>
         </div>
-      </Section>
+      </div>
 
       {/* Social proof / framing */}
-      <Section className="py-16 border-t border-border/40 text-center">
+      <div className="px-6 py-16 border-t border-border/40 text-center">
         <div className="max-w-2xl mx-auto">
           <blockquote className="text-2xl md:text-3xl font-serif italic leading-relaxed mb-6">
             "You can keep spending money on marketing and hope it works. Or you can fix the foundation and know it does."
@@ -213,7 +212,7 @@ export default function Roast() {
             — Brittany Moulder, Elevation Axis
           </p>
         </div>
-      </Section>
+      </div>
     </>
   );
 }

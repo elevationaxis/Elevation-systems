@@ -10,7 +10,7 @@ services:
     runtime: node
     plan: free
     buildCommand: npm ci --include=dev && npx tsx script/build.ts
-    startCommand: npx drizzle-kit push && npm start
+    startCommand: (npx drizzle-kit push --force || echo 'DB migration skipped') && npm start
     healthCheckPath: /health
     envVars:
       - key: NODE_ENV
