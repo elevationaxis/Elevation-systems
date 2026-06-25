@@ -1,7 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { insertContactSchema, insertAuditSchema, insertResourceUnlockSchema } from "@shared/schema";
+import { insertContactSchema, insertAuditSchema, insertResourceUnlockSchema, insertRoastSchema } from "@shared/schema";
 import { runAudit, runAuditDirect } from "./auditEngine";
 import { sendContactNotification, sendAuditNotification } from "./mailer";
 
@@ -9,6 +9,32 @@ export async function registerRoutes(
   httpServer: Server,
   app: Express
 ): Promise<Server> {
+  app.post("/api/roast", async (req, res) => {
+    try {
+      const parsed = insertRoastSchema.safeParse(req.body);
+      if (!parsed.success) {
+        return res.status(400).json({ message: "Invalid form data", errors: parsed.error.flatten() });
+      }
+      // Store submission (best-effort — don't fail if DB is unavailable)
+      try {
+        await storage.createRoastSubmission(parsed.data);
+      } catch (dbErr) {
+        console.error("Roast DB error (non-fatal):", dbErr);
+      }
+      // Send email notification
+      sendContactNotification({
+        name: parsed.data.businessName,
+        email: parsed.data.email,
+        businessName: parsed.data.businessName,
+        message: `ROAST REQUEST\nURL: ${parsed.data.websiteUrl}\nConcern: ${parsed.data.biggestConcern || "None specified"}`,
+      }).catch(err => console.error("Roast email error:", err));
+      return res.status(201).json({ message: "Received. You'll hear back within 24–48 hours." });
+    } catch (error) {
+      console.error("Roast form error:", error);
+      return res.status(500).json({ message: "Something went wrong. Please try again." });
+    }
+  });
+
   app.get("/health", (_req, res) => {
     res.status(200).json({ status: "ok" });
   });

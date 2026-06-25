@@ -12,6 +12,7 @@ import Contact from "@/pages/contact";
 import Resources from "@/pages/resources";
 import Audit from "@/pages/audit";
 import AdminDashboard from "@/pages/AdminDashboard";
+import Roast from "@/pages/roast";
 import { SplashScreen } from "@/components/splash-screen";
 import { useLocation } from "wouter";
 import { useEffect, useState } from "react";
@@ -37,6 +38,7 @@ function Router() {
         <Route path="/contact" component={Contact} />
         <Route path="/resources" component={Resources} />
         <Route path="/audit" component={Audit} />
+        <Route path="/roast" component={Roast} />
         <Route path="/admin" component={AdminDashboard} />
         <Route component={NotFound} />
       </Switch>

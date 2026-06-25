@@ -77,6 +77,25 @@ export const insertResourceUnlockSchema = z.object({
 export type InsertResourceUnlock = z.infer<typeof insertResourceUnlockSchema>;
 export type ResourceUnlock = typeof resourceUnlocks.$inferSelect;
 
+export const roastSubmissions = pgTable("roast_submissions", {
+  id: serial("id").primaryKey(),
+  businessName: text("business_name").notNull(),
+  email: text("email").notNull(),
+  websiteUrl: text("website_url").notNull(),
+  biggestConcern: text("biggest_concern"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+export const insertRoastSchema = z.object({
+  businessName: z.string().min(2, "Business name is required"),
+  email: z.string().email("Please enter a valid email"),
+  websiteUrl: z.string().url("Please enter a valid website URL"),
+  biggestConcern: z.string().optional(),
+});
+
+export type InsertRoast = z.infer<typeof insertRoastSchema>;
+export type RoastSubmission = typeof roastSubmissions.$inferSelect;
+
 export const insertAuditSchema = z.object({
   businessName: z.string().min(2, "Business name is required"),
   email: z.string().email("Please enter a valid email"),
