@@ -1,5 +1,27 @@
 const GOOGLE_API_KEY = process.env.GOOGLE_API_KEY || "";
 
+// ── Deterministic seed helper ─────────────────────────────────────────────────
+// Produces a stable integer offset from a string so the same business always
+// gets the same score — eliminates Math.random() variance between runs.
+function seedOffset(str: string, range: number, shift: number): number {
+  let h = 0;
+  for (let i = 0; i < str.length; i++) {
+    h = (Math.imul(31, h) + str.charCodeAt(i)) | 0;
+  }
+  return (Math.abs(h) % range) - shift;
+}
+
+// ── PageSpeed severity bands ──────────────────────────────────────────────────
+// Normalises the raw PageSpeed score (which varies ±10–20 pts between API calls)
+// into stable severity bands so the label never flips between runs.
+function bandPageSpeed(rawScore: number): number {
+  if (rawScore >= 90) return 92;   // Good
+  if (rawScore >= 70) return 78;   // Low leak
+  if (rawScore >= 50) return 62;   // Moderate
+  if (rawScore >= 30) return 42;   // Critical
+  return 22;                        // Critically slow
+}
+
 // ── Types ─────────────────────────────────────────────────────────────────────
 
 export interface Competitor {
@@ -157,7 +179,11 @@ function scoreVisibilityLeak(competitors: Competitor[]): LeakScore {
     findings.push("If your business isn't appearing in the map pack for your main service + city, you're invisible to the majority of ready-to-buy searchers.");
   }
 
-  score = Math.max(20, Math.min(78, score + Math.floor(Math.random() * 18) - 5));
+  // Deterministic offset so same business always scores the same
+  const offset = competitors.length > 0
+    ? seedOffset(competitors[0].name, 14, 5)
+    : 0;
+  score = Math.max(20, Math.min(78, score + offset));
   return { score, severity: severity(score), findings };
 }
 
@@ -186,7 +212,10 @@ function scoreTrustLeak(competitors: Competitor[]): LeakScore {
     findings.push("Businesses without a professional website lose 35–50% of referral traffic before the first conversation even starts.");
   }
 
-  score = Math.max(25, Math.min(75, score + Math.floor(Math.random() * 15) - 5));
+  const offset = competitors.length > 0
+    ? seedOffset(competitors[0].name + "trust", 12, 5)
+    : 0;
+  score = Math.max(25, Math.min(75, score + offset));
   return { score, severity: severity(score), findings };
 }
 
@@ -213,7 +242,8 @@ function scoreConversionLeak(url: string, speedScore: number): LeakScore {
   findings.push("The most common conversion leak: no visible phone number above the fold on mobile. If a visitor has to scroll to call you, most won't.");
   findings.push("A single clear call-to-action — 'Call Now', 'Book Today', 'Get a Free Quote' — above the fold on mobile is the highest-ROI change most service businesses can make.");
 
-  score = Math.max(20, Math.min(85, score + Math.floor(Math.random() * 10) - 3));
+  // No random jitter — conversion score is anchored to real PageSpeed data
+  score = Math.max(20, Math.min(85, score));
   return { score, severity: severity(score), findings };
 }
 
@@ -234,7 +264,8 @@ function scoreResponseLeak(url: string): LeakScore {
   findings.push("A missed call without an automated follow-up text is a lost lead. The customer will call the next business on the list before you call back.");
   findings.push("Contact forms that don't trigger an immediate notification — or go to a spam folder — are silent revenue leaks. Most business owners don't know it's happening.");
 
-  score = Math.max(22, Math.min(80, score + Math.floor(Math.random() * 14) - 5));
+  const offset = seedOffset(url + "response", 10, 4);
+  score = Math.max(22, Math.min(80, score + offset));
   return { score, severity: severity(score), findings };
 }
 
@@ -256,7 +287,10 @@ function scoreGrowthLeak(competitors: Competitor[]): LeakScore {
   findings.push("Most service businesses have no way to track which marketing is actually producing calls. Without that data, every dollar spent is a guess.");
   findings.push("Content and local SEO compound over time — a business that started 12 months ago is now ranking for searches you'll never see. The best time to build was a year ago. The second best time is now.");
 
-  score = Math.max(20, Math.min(70, score + Math.floor(Math.random() * 16) - 5));
+  const offset = competitors.length > 0
+    ? seedOffset(competitors[0].name + "growth", 12, 5)
+    : 0;
+  score = Math.max(20, Math.min(70, score + offset));
   return { score, severity: severity(score), findings };
 }
 
@@ -376,7 +410,10 @@ export async function runAuditDirect(data: {
   industry: string;
 }): Promise<AuditOutput> {
   const pageSpeed = await fetchPageSpeed(data.websiteUrl);
-  const speedScore = pageSpeed?.score ?? Math.floor(Math.random() * 35) + 28;
+  // Band the raw PageSpeed score into stable severity tiers so API variance
+  // (±10–20 pts) never flips a severity label between runs on the same site.
+  const rawSpeed = pageSpeed?.score ?? 45;
+  const speedScore = bandPageSpeed(rawSpeed);
   const siteSpeedData = pageSpeed
     ? { ...pageSpeed }
     : { realData: false, score: speedScore, note: "Site couldn't be reached directly — score estimated from common patterns for similar businesses." };
@@ -427,7 +464,8 @@ export async function runAudit(auditId: number, storage: any): Promise<void> {
   try {
     // 1. Real site speed
     const pageSpeed = await fetchPageSpeed(audit.websiteUrl);
-    const speedScore = pageSpeed?.score ?? Math.floor(Math.random() * 35) + 28;
+    const rawSpeed = pageSpeed?.score ?? 45;
+    const speedScore = bandPageSpeed(rawSpeed);
     const siteSpeedData = pageSpeed
       ? { ...pageSpeed }
       : { realData: false, score: speedScore, note: "Site couldn't be reached directly — score estimated from common patterns for similar businesses." };
