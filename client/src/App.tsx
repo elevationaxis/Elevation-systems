@@ -66,6 +66,16 @@ function AuditForm() {
     setState("loading");
     setError("");
     try {
+      const leadPayload = new URLSearchParams({
+        "form-name": "ea-website-review",
+        ...form,
+      });
+      void fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: leadPayload.toString(),
+      }).catch(() => undefined);
+
       const response = await fetch("/api/audit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -96,7 +106,7 @@ function AuditForm() {
     </div>;
   }
 
-  return <form className="standing-form" onSubmit={submit}>
+  return <form className="standing-form" name="ea-website-review" onSubmit={submit}>
     <div className="form-grid">
       <label>Business Name<input required value={form.businessName} onChange={(event) => update("businessName", event.target.value)} placeholder="Your business" /></label>
       <label>Website<input required type="url" value={form.websiteUrl} onChange={(event) => update("websiteUrl", event.target.value)} placeholder="https://yourwebsite.com" /></label>
