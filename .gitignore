@@ -11,3 +11,5 @@ vite.config.ts.*
 replit.nix
 .upm
 .config
+
+.netlify/
